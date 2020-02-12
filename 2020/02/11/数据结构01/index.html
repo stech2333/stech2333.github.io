@@ -46,26 +46,32 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="栈和队列栈是什么？队列又是什么？简而言之，栈和队列是一种线性存储结构，是一种特殊的线性表。特殊之处就在于使用栈结构存储数据，栈底封闭，只能从栈顶存取数据，数据遵循着“先进后出”的特点。使用队列结构存储数据，队列两端开口，不过数据只能从一端进入，从另外一端出，数据遵循着“先进先出”的特点。 队列的结构图  栈的结构图  顺序栈和链式栈以及c++ STL栈Stack的实现 顺序栈代码实现 123456">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构01">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;11&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%8401&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="栈和队列栈是什么？队列又是什么？简而言之，栈和队列是一种线性存储结构，是一种特殊的线性表。特殊之处就在于使用栈结构存储数据，栈底封闭，只能从栈顶存取数据，数据遵循着“先进后出”的特点。使用队列结构存储数据，队列两端开口，不过数据只能从一端进入，从另外一端出，数据遵循着“先进先出”的特点。 队列的结构图  栈的结构图  顺序栈和链式栈以及c++ STL栈Stack的实现 顺序栈代码实现 123456">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;11&#x2F;dIqpfPL5DsgvbSh.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;11&#x2F;fACWr7az3HEIZsO.png">
+<meta property="og:updated_time" content="2020-02-11T02:19:34.835Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;11&#x2F;dIqpfPL5DsgvbSh.png">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/02/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%8401/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome: false,
+    isPost: true
   };
 </script>
 
-  <title>Hexo</title>
+  <title>数据结构01 | Hexo</title>
   
 
 
@@ -176,108 +182,10 @@
             
 
   <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/python%E7%88%AC%E8%99%AB01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="stech2333">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/11/python%E7%88%AC%E8%99%AB01/" class="post-title-link" itemprop="url">python爬虫01</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-11 10:30:14" itemprop="dateCreated datePublished" datetime="2020-02-11T10:30:14+08:00">2020-02-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:37:51" itemprop="dateModified" datetime="2020-02-12T10:37:51+08:00">2020-02-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <h3 id="HTTP协议（超文本传输协议）"><a href="#HTTP协议（超文本传输协议）" class="headerlink" title="HTTP协议（超文本传输协议）"></a>HTTP协议（超文本传输协议）</h3><p>URL格式 <code>http://host[:port][path]</code></p>
-<ol>
-<li>host:合法的Internet主机域名或者IP地址</li>
-<li>port:端口号，缺省端口（默认端口）为80</li>
-<li>path: 请求资源的路径</li>
-</ol>
-<p>URL是通过HTTP协议存取资源的Internet路径，一个URL对应一个数据资源</p>
-<ul>
-<li><p><a href="https://www.jianshu.com/p/7c8b4576e4bb" target="_blank" rel="noopener">详细内容1</a></p>
-</li>
-<li><p><a href="https://www.cnblogs.com/an-wen/p/11180076.html" target="_blank" rel="noopener">详细内容2</a></p>
-</li>
-</ul>
-<h3 id="Robots协议（爬虫协议，机器人协议）"><a href="#Robots协议（爬虫协议，机器人协议）" class="headerlink" title="Robots协议（爬虫协议，机器人协议）"></a>Robots协议（爬虫协议，机器人协议）</h3><p>Robots协议是网站出于安全和隐私考虑，防止搜索引擎和网络爬虫抓取敏感信息而设置的，是一个网站与爬虫间的协议，它用简单直接的txt格式文本方式告诉对应的爬虫被允许的权限，一般robots.txt直接存放在网站的根目录下</p>
-<p><a href="https://blog.csdn.net/qq_40491569/article/details/83473703" target="_blank" rel="noopener">具体语法</a></p>
-<h3 id="爬虫入门，Requests库的使用方法"><a href="#爬虫入门，Requests库的使用方法" class="headerlink" title="爬虫入门，Requests库的使用方法"></a>爬虫入门，Requests库的使用方法</h3><ul>
-<li><p>Requests库的7个主要方法（分别与HTTP协议的方法对应）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">requests.request(method,url,**kwargs)</span><br><span class="line"><span class="comment"># **kwargs: 控制访问的参数，均可做可选项</span></span><br><span class="line">requests.get(url,params = <span class="literal">None</span>, **kwargs)</span><br><span class="line">requests.head(url,**kwargs)</span><br><span class="line">requests.post(url,data = <span class="literal">None</span>,json = <span class="literal">None</span>,**kwargs)</span><br><span class="line">requests.put(url ,data = <span class="literal">None</span>,**kwargs)</span><br><span class="line">requests.patch(url,data = <span class="literal">None</span>,**kwargs)</span><br><span class="line">requests.delete(url,**kwargs)</span><br><span class="line"><span class="comment"># 一共十三个参数，不同方法的参数个数不同</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>**kwargs内具体的参数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">params: 字典或者字节序列，作为参数增加到url中</span><br><span class="line">kv = &#123;<span class="string">'key1'</span>: <span class="string">'value'</span>,<span class="string">'key2'</span>: <span class="string">'value2'</span>&#125;</span><br><span class="line">r = requests.request(<span class="string">'GET'</span>,<span class="string">'http://python123.io/ws'</span>,params=kv)</span><br><span class="line">print(r.url)</span><br><span class="line"><span class="comment">#输出为  http://python123.io/ws?key1=value1&amp;key2=value2</span></span><br><span class="line"></span><br><span class="line">data: 字典，字节序列或者文件对象，作为Request的内容</span><br><span class="line">kv = &#123;<span class="string">'key1'</span>: <span class="string">'value'</span>,<span class="string">'key2'</span>: <span class="string">'value2'</span>&#125;</span><br><span class="line">r = requests.request(<span class="string">'POST'</span>,<span class="string">'http://python123.io/ws'</span>,data=kv)</span><br><span class="line">body = <span class="string">'主要内容'</span></span><br><span class="line">r = requests.request(<span class="string">'POST'</span>,<span class="string">'http://python123.io/ws'</span>,data=body)</span><br><span class="line"></span><br><span class="line">json: JSON格式的数据，作为Request的内容</span><br><span class="line">kv = &#123;<span class="string">'key1'</span>:<span class="string">'value1'</span>&#125;</span><br><span class="line">r = requests.request(<span class="string">'POST'</span>,<span class="string">'http://python123.io/ws'</span>,json = kv)</span><br><span class="line"></span><br><span class="line">headers: 字典，HTTP定制头</span><br><span class="line">hd = &#123;<span class="string">'user-agent'</span>:<span class="string">'Chrome/10'</span>&#125;</span><br><span class="line">r = requests.request(<span class="string">'POST'</span>,<span class="string">'http://python123.io/ws'</span>,headers=hd)</span><br><span class="line"></span><br><span class="line">cookies:字典或者CookieJar,Request中的cookie</span><br><span class="line">auth:元组，支持HTTP认证功能</span><br><span class="line">    </span><br><span class="line">files：字典类型，传输文件</span><br><span class="line">fs = &#123;<span class="string">'file'</span>:open(<span class="string">'data.xls'</span>,<span class="string">'rb'</span>)&#125;</span><br><span class="line">r = requests.request(<span class="string">'POST'</span>,<span class="string">'http://python123.io/ws'</span>,files=fs)</span><br><span class="line"></span><br><span class="line">timeout: 设置超时时间，单位为秒</span><br><span class="line">r = requests.request(<span class="string">'POST'</span>,<span class="string">'http://python123.io/ws'</span>,timeout=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">proxies: 字典类型，设定访问代理服务器，可以增加登陆验证</span><br><span class="line">pxs = &#123;<span class="string">'http'</span>:<span class="string">'http://user:pass@10.10.10.1:1234'</span></span><br><span class="line">      <span class="string">'https'</span>:<span class="string">'http://10.10.10.1:4321'</span>&#125;</span><br><span class="line">r = requests.request(<span class="string">'GET'</span>,<span class="string">'http://python123.io/ws'</span>,proxies=pxs)</span><br><span class="line"></span><br><span class="line">allow_redirects:<span class="literal">True</span>/<span class="literal">False</span>,默认为<span class="literal">True</span>,重定向开关</span><br><span class="line">stream：<span class="literal">True</span>/<span class="literal">False</span>，默认为<span class="literal">True</span>，获取内容立即下载开关</span><br><span class="line">verify:<span class="literal">True</span>/<span class="literal">False</span>,默认为<span class="literal">True</span>，认证SSl证书开关</span><br><span class="line">cert:本地SSL证书路径</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>爬取网页的通用模板</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url)</span>:</span></span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url,timeout = <span class="number">30</span>)</span><br><span class="line">        r.raise_for_status()    <span class="comment">#查看状态码，如果状态码不是200，引发HTTPError异常</span></span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"产生异常！"</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    url = <span class="string">"http://www.baidu.com"</span></span><br><span class="line">    print(getHTMLText(url))</span><br><span class="line">    <span class="comment">#爬取百度首页的HTML</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%8401/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -291,8 +199,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%8401/" class="post-title-link" itemprop="url">数据结构01</a>
+          数据结构01
         </h1>
 
         <div class="post-meta">
@@ -317,7 +224,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h3><p>栈是什么？队列又是什么？简而言之，栈和队列是一种线性存储结构，是一种特殊的线性表。特殊之处就在于使用栈结构存储数据，栈底封闭，只能从栈顶存取数据，数据遵循着“先进后出”的特点。使用队列结构存储数据，队列两端开口，不过数据只能从一端进入，从另外一端出，数据遵循着“先进先出”的特点。</p>
+        <h3 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h3><p>栈是什么？队列又是什么？简而言之，栈和队列是一种线性存储结构，是一种特殊的线性表。特殊之处就在于使用栈结构存储数据，栈底封闭，只能从栈顶存取数据，数据遵循着“先进后出”的特点。使用队列结构存储数据，队列两端开口，不过数据只能从一端进入，从另外一端出，数据遵循着“先进先出”的特点。</p>
 <p>队列的结构图</p>
 <p><img src="https://i.loli.net/2020/02/11/dIqpfPL5DsgvbSh.png" alt=""></p>
 <p>栈的结构图</p>
@@ -369,180 +276,36 @@
 </li>
 </ol>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AF%BC%E8%AE%BA%E8%AE%BA%E6%96%87/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="stech2333">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AF%BC%E8%AE%BA%E8%AE%BA%E6%96%87/" class="post-title-link" itemprop="url">计算机导论论文</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-19 17:24:30" itemprop="dateCreated datePublished" datetime="2019-12-19T17:24:30+08:00">2019-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 14:39:48" itemprop="dateModified" datetime="2020-02-12T14:39:48+08:00">2020-02-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<h2 id="从cooook博客中摘抄的小东西"><a href="#从cooook博客中摘抄的小东西" class="headerlink" title="从cooook博客中摘抄的小东西"></a>从cooook博客中摘抄的小东西</h2><h3 id="1．缓冲区溢出漏洞"><a href="#1．缓冲区溢出漏洞" class="headerlink" title="1．缓冲区溢出漏洞"></a>1．缓冲区溢出漏洞</h3><p>在当前网络与分布式系统安全中，被广泛利用的50%以上都是缓冲区溢出，而缓冲区溢出中最危险的又是堆栈溢出。计算机程序一般都会使用到一些内存，或用作程序内部使用，或存放用户输入的数据，这样的内存一般称为缓冲区。举个例子，在我们C语言中经常会使用到一个函数getchar，这是从标准输入设备中读取一个字符，但当我们运行某些程序，<br>如 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">char a;</span><br><span class="line"><span class="keyword">while</span>(a=getchar())</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%c\n"</span>,a);</span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个函数时，我们会发现，并不是我们输入一个字符，它便输出一个字符，而只有当我们按下换行符，才输出字符，事实上，键盘（输入设备）与计算机（主机）中间存在一个缓冲区，我们的输入存到了缓冲区，这个缓冲区采用行缓冲的方式（还有全缓冲与不带缓冲）遇到换行符时将缓冲区的内容发送给到主机，程序运行。缓冲区溢出简单的说就是计算机对接收的输入数据没有进行有效的检测（理想的情况是程序检查数据长度并不允许输入超过缓冲区长度的字符），向缓冲区内填充数据时超过了缓冲区本身的容量，而导致数据溢出到被分配空间之外的内存空间，使得溢出的数据覆盖了其他内存空间的数据。<br>在最初，人们并不那么重视数据安全的时候，出现了大量的溢出漏洞（C语言编译器对缓冲区长度不加以检测，C语言内部不对用户输入不做任何检查的gets，strcpy，strcat等函数），这也就导致了后来1988年Morris蠕虫病毒在互联网泛滥，造成近亿美元损失的灾难。</p>
-<h3 id="2-栈溢出漏洞"><a href="#2-栈溢出漏洞" class="headerlink" title="2.栈溢出漏洞"></a>2.栈溢出漏洞</h3><p>再来说说栈溢出漏洞，简单来说，栈是一种具有特殊访问方式的存储空间，特殊之处在于先入栈的元素后出栈，且由高位向低位生长（栈顶指针%esp指向低位，栈底指针%ebp指向高位）程序的汇编中, 代码段和数据段分开储存, 数据段有栈储存(严谨来说内存栈并不在数据段), 代码段没有在代码栈中, 当运行到第i行时, eip指向第i+1行, eip的跳转可以实现函数的多种功能.这就不得不谈及到函数的调用方式了，编译器通过栈来对函数进行调用。在一个程序向栈中某个变量写入数据时，写入的字节数超过了这个变量本身所申请的字节数，这样，超过的部分字节溢出到相邻的栈中的变量，改变了它的值。这种溢出（改变了其他变量的值）轻则导致程序结果出错，重（溢出覆盖了返回地址，导致程序返回地址遭劫持）则可能会被黑客利用，轻而易举拿到你计算机的Shell<br>获取到对你计算机的掌控权。堆溢出更为复杂，但原理相似，所以略过不写。</p>
-<p>Nodejs与Git的开发给前端，各种软件应用的开发提供了极大的便利，然而也因为不注重安全，产生了非常多的安全隐患，其中就关于web网络应用程序的攻击方法就层出不穷，SQL注入攻击，跨站脚本XSS攻击，跨站请求伪造等等。</p>
-<h2 id="二：计算机硬件系统的结构以及工作原理"><a href="#二：计算机硬件系统的结构以及工作原理" class="headerlink" title="二：计算机硬件系统的结构以及工作原理"></a>二：计算机硬件系统的结构以及工作原理</h2><p>说到计算机硬件系统，就离不开哈佛结构与冯—诺依曼结构，在这里简要介绍冯诺依曼结构的组成。冯诺依曼结构由I/O设备（输入设备，输出设备），存储器，控制器，运算器五大结构组成<br><img src="https://i.loli.net/2020/02/12/ohpnDMGJjs1W8ef.png" alt="早期的冯·诺依曼结构图">) “早期的冯·诺依曼结构图”)</p>
-<ul>
-<li>1.总线<br>贯穿整个系统的是一组电子管道，称为总线，它负责携带信息字节并负责在各个部件间传递。例如说CPU就是通过三类总线—地址总线，控制总线和数据总线来进行对内存的读写。<br>CPU通过地址总线发出地址信息，通过控制总线发出读（写）命令，最后存储器将指定地址的内存单元中的数据通过数据发送到CPU（或者由CPU通过数据总线发送数据到指定地址的内存单元中存储下来），操作完成<br>总线是一根根导线的集合，因此总线的传输能力与导线的根数有关，导线根数越多，传输速度越快（例如说地址总线宽度为16，一次寻址能力即为8kb）</li>
-<li>2.I/O设备<br>即输入输出设备，一切能与计算机进行数据传输的硬件都是I/O设备，最常见的输入设备有鼠标，键盘，软盘，光驱等等，常见输出设配有打印机，显示屏，硬盘等</li>
-<li>3.主存<br>内存主要分为ROM（只读存储器）以及RAM（随机存储器）。RAM用于存放CPU使用的绝大部分程序和数据，但关机断电后数据会消失，因此一般用ROM来存储固定的系统软件以及字库，用RAM来存储操作系统，各种软件，输入以及输出数据，中间交换结果即与外存交换的信息。</li>
-<li>4.处理器<br>中央处理器即CPU，一个典型的CPU由控制器，运算器，寄存器组成，各部分之间靠总线相连。当CPU运行一个程序，操作数从（通用）寄存器或者存储器运输到CPU中的算术逻辑部件（ALU），进行算数运算或者逻辑运算后的结果可以继续放入寄存器或者存储器中，<br>（GPRS）寄存器中的数据也可以通过MDR输送到存储器，反之亦然。操作产生的（存储在标志寄存器内的）标志信息（如计算产生的符号，是否溢出，是否进位）输送进入控制器影响后续程序的进行。每条指令都存在一个地址，要使这条的指令运行，要首先将地址要先送到 一个特定的寄存器—程序计数器PC，然后送到MAR（一个地址寄存器）中，操作数的地址（可能在通用寄存器组中）也要送入MAR中，再送入存储器。指令在送到控制器中执行时还要先放入IR（指令寄存器）中，从存储器中取来的指令先送到MDR，然后再到IR，再送到指令寄存器送到控制器，控制器控制，一个线程完成。由CPU和存储器组成主机，主机与I/O设备通过总线，I/O桥连接，输入输出。进程结束。CPU内部还存在Cache（高速缓存）来缓和中央处理器和主存储器之间速度不匹配的矛盾，提高计算机系统性能，这里就不加以赘述<br><img src="https://i.loli.net/2020/02/12/XbpyQoNvOw5nZfm.png%EF%BC%8C%22CPU%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%22" alt="CPU内部结构"></li>
-<li>5.程序的执行—开始执行程序（程序在执行前数据和指令已经放入存储器中，每条指令和每个数据都有地址，，指令按序存放（由OP，ADDR字段组成，程序的起始地址都放在PC中）<br>第一步：根据PC取指令<br>第二步：指令译码<br>第三步：取操作数<br>第四步：指令执行<br>第五步：回写结果<br>第六步：修改PC的值，执行下一条指令。 </li>
-</ul>
-<hr>
-<h2 id="三：程序设计语言"><a href="#三：程序设计语言" class="headerlink" title="三：程序设计语言"></a>三：程序设计语言</h2><ul>
-<li>1.第一代程序设计语言<br>机器语言是第一代程序设计语言，是机器指令的集合，作为最初的程序设计语言，机器语言靠0与1进行编程，可以直接运行在计算机上运行，但由于晦涩难懂和不易查错以及难以书写和阅读记忆，阻碍了整个行业的发展。于是接下来就出现了第二代程序设计语言—汇编语言</li>
-<li>2.第二代程序设计语言<br>与机器语言相比，汇编语言用符号表示，不仅有利于程序员的理解记忆，而且为不同高级语言的不同编译器提供了通用的输出语言。但是机器却不能理解汇编语言，只有通过汇编器将汇编指令转化为机器指令，才能被机器识别，最终执行。但汇编语言也存在一些问题，在编写较复杂程序时，需要描写的细节过多，导致程序很长，同时由于不同机器的结构可能不同，汇编语言的可移植性得不到保障。为此，第三代程序设计语言，高级语言就出现了。汇编语言以及机器语言都是面向机器结构的语言，因此将他们都称机器语言。</li>
-<li>3.第三代程序设计语言<br>面向过程的语言以及面向对象的高级语言，需要编译或者解释（不生成目标文件）才能执行。</li>
-</ul>
-<hr>
-<p>参考文献及资料<br>《汇编语言》— 王爽<br>《深入理解计算机系统》—Randal E.Bryant , David R.O’Hallaron<br>《计算机科学概论》—J.Glenn Brookshear<br>《计算机系统基础》—袁春风</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="stech2333">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">我的第一篇博客</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-10 11:27:12" itemprop="dateCreated datePublished" datetime="2019-11-10T11:27:12+08:00">2019-11-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 14:40:36" itemprop="dateModified" datetime="2020-02-12T14:40:36+08:00">2020-02-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="特别感谢手把手教导的各位大师傅"><a href="#特别感谢手把手教导的各位大师傅" class="headerlink" title="特别感谢手把手教导的各位大师傅"></a>特别感谢手把手教导的各位大师傅</h2><hr>
-<p> 各位师傅人真的非常好，谢谢各位大佬，我就是一个做啥啥不会，吃饭第一名的某曹….因为我比较菜，就先这样吧，其实应该附上各位大师傅友链的…..</p>
-<hr>
-<p>吐槽一下某帆,作为我大学的第一个基友，重色轻友…虽说好像男的都这样？但百度<a href="https://www.baidu.com/" target="_blank" rel="noopener">Baidu</a> 与谷歌<a href="http://www.google.cn/" target="_blank" rel="noopener">Google</a>真的是绝了<br>就是嫌我菜不想带我….(虽然他说的好像是有那么一点道理的亚子..)双十一这情头还可以，貌似可以勉强原谅</p>
-<hr>
-<p>继续努力希望能勉强抱住大佬大腿吧</p>
-
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AF%BC%E8%AE%BA%E8%AE%BA%E6%96%87/" rel="prev" title="计算机导论论文">
+      <i class="fa fa-chevron-left"></i> 计算机导论论文
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/11/python%E7%88%AC%E8%99%AB01/" rel="next" title="python爬虫01">
+      python爬虫01 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -593,6 +356,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈和队列"><span class="nav-number">1.</span> <span class="nav-text">栈和队列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#顺序栈和链式栈以及c-STL栈Stack的实现"><span class="nav-number">1.1.</span> <span class="nav-text">顺序栈和链式栈以及c++ STL栈Stack的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顺序队列和链式队列以及C-STL队列queue的实现"><span class="nav-number">1.2.</span> <span class="nav-text">顺序队列和链式队列以及C++STL队列queue的实现</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
