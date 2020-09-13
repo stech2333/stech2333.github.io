@@ -46,17 +46,17 @@
   };
 </script>
 
-  <meta name="description" content="Wood 嘉木是个渣男   St4ck 赞神赞神赞神   w4rd3n 曹师傅tql   Mycql Mycql   thatshaman thatshaman   drangonliu drangonliu   sophia-ann lss大佬   desperadoccy 四火学长   Crux Crux   wlupus 武大巨佬ljm   cooook 四蛋   [nona">
-<meta property="og:type" content="website">
-<meta property="og:title" content="links">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;links&#x2F;index.html">
+  <meta name="description" content="函数模板的定义 12345template &amp;lt;class(或者是typename)类型参数表&amp;gt;返回类型 函数模板名（数据参数表）&amp;#123;    函数定义体&amp;#125;  C++ STL基础STL框架最关键的5个组件 容器（container），迭代器（iterator），算法（algorithm），函数对象（function object），适配器（allocators adapt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STL">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;13&#x2F;STL&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Wood 嘉木是个渣男   St4ck 赞神赞神赞神   w4rd3n 曹师傅tql   Mycql Mycql   thatshaman thatshaman   drangonliu drangonliu   sophia-ann lss大佬   desperadoccy 四火学长   Crux Crux   wlupus 武大巨佬ljm   cooook 四蛋   [nona">
+<meta property="og:description" content="函数模板的定义 12345template &amp;lt;class(或者是typename)类型参数表&amp;gt;返回类型 函数模板名（数据参数表）&amp;#123;    函数定义体&amp;#125;  C++ STL基础STL框架最关键的5个组件 容器（container），迭代器（iterator），算法（algorithm），函数对象（function object），适配器（allocators adapt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-29T06:03:30.491Z">
+<meta property="og:updated_time" content="2020-03-11T12:00:35.897Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/links/">
+<link rel="canonical" href="http://yoursite.com/2020/09/13/STL/">
 
 
 <script id="page-configurations">
@@ -64,12 +64,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>links | Hexo
-  </title>
+  <title>STL | Hexo</title>
   
 
 
@@ -175,100 +174,95 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/13/STL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="stech2333">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          STL
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">links
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-<div class="post-meta">
+              <time title="创建时间：2020-09-13 19:51:45" itemprop="dateCreated datePublished" datetime="2020-09-13T19:51:45+08:00">2020-09-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-11 20:00:35" itemprop="dateModified" datetime="2020-03-11T20:00:35+08:00">2020-03-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>函数模板的定义</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span>(或者是<span class="title">typename</span>)类型参数表&gt;</span></span><br><span class="line"><span class="class">返回类型 函数模板名（数据参数表）</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    函数定义体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-STL基础"><a href="#C-STL基础" class="headerlink" title="C++ STL基础"></a>C++ STL基础</h3><p>STL框架最关键的5个组件</p>
+<p>容器（container），迭代器（iterator），算法（algorithm），函数对象（function object），适配器（allocators adapter）</p>
+<p>….</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/13/python%E7%88%AC%E8%99%AB01/" rel="prev" title="python爬虫01">
+      <i class="fa fa-chevron-left"></i> python爬虫01
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="next" title="我的第一篇博客">
+      我的第一篇博客 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><a href="https://wood1314.github.io" target="_blank" rel="noopener">Wood</a></td>
-<td align="center">嘉木是个渣男</td>
-</tr>
-<tr>
-<td align="center"><a href="https://kit4y.github.io/" target="_blank" rel="noopener">St4ck</a></td>
-<td align="center">赞神赞神赞神</td>
-</tr>
-<tr>
-<td align="center"><a href="https://hitworld.github.io/" target="_blank" rel="noopener">w4rd3n</a></td>
-<td align="center">曹师傅tql</td>
-</tr>
-<tr>
-<td align="center"><a href="http://dev3.airdb.io:8000/#/home" target="_blank" rel="noopener">Mycql</a></td>
-<td align="center">Mycql</td>
-</tr>
-<tr>
-<td align="center"><a href="http://shiroinu.top/" target="_blank" rel="noopener">thatshaman</a></td>
-<td align="center">thatshaman</td>
-</tr>
-<tr>
-<td align="center"><a href="https://dragonliu2018.github.io/" target="_blank" rel="noopener">drangonliu</a></td>
-<td align="center">drangonliu</td>
-</tr>
-<tr>
-<td align="center"><a href="https://sophia-ann.github.io" target="_blank" rel="noopener">sophia-ann</a></td>
-<td align="center">lss大佬</td>
-</tr>
-<tr>
-<td align="center"><a href="https://desperadoccy.github.io/" target="_blank" rel="noopener">desperadoccy</a></td>
-<td align="center">四火学长</td>
-</tr>
-<tr>
-<td align="center"><a href="https://cruxssssss.github.io/" target="_blank" rel="noopener">Crux</a></td>
-<td align="center">Crux</td>
-</tr>
-<tr>
-<td align="center"><a href="https://wlupus.github.io/" target="_blank" rel="noopener">wlupus</a></td>
-<td align="center">武大巨佬ljm</td>
-</tr>
-<tr>
-<td align="center"><a href="https://cooook.github.io" target="_blank" rel="noopener">cooook</a></td>
-<td align="center">四蛋</td>
-</tr>
-<tr>
-<td align="center">[noname] (<a href="https://noname0519.github.io" target="_blank" rel="noopener">https://noname0519.github.io</a>)</td>
-<td align="center">蔡佬</td>
-</tr>
-</tbody></table>
-
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
   </div>
 
 
@@ -320,6 +314,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-STL基础"><span class="nav-number">1.</span> <span class="nav-text">C++ STL基础</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
