@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机导论论文 | stech2333的小窝</title><meta name="author" content="stech2333"><meta name="copyright" content="stech2333"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从cooook博客中摘抄的小东西1．缓冲区溢出漏洞在当前网络与分布式系统安全中，被广泛利用的50%以上都是缓冲区溢出，而缓冲区溢出中最危险的又是堆栈溢出。计算机程序一般都会使用到一些内存，或用作程序内部使用，或存放用户输入的数据，这样的内存一般称为缓冲区。举个例子，在我们C语言中经常会使用到一个函数getchar，这是从标准输入设备中读取一个字符，但当我们运行某些程序，如  123456789#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机导论论文">
+<meta property="og:url" content="http://example.com/posts/234233.html">
+<meta property="og:site_name" content="stech2333的小窝">
+<meta property="og:description" content="从cooook博客中摘抄的小东西1．缓冲区溢出漏洞在当前网络与分布式系统安全中，被广泛利用的50%以上都是缓冲区溢出，而缓冲区溢出中最危险的又是堆栈溢出。计算机程序一般都会使用到一些内存，或用作程序内部使用，或存放用户输入的数据，这样的内存一般称为缓冲区。举个例子，在我们C语言中经常会使用到一个函数getchar，这是从标准输入设备中读取一个字符，但当我们运行某些程序，如  123456789#">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/own.jpg">
+<meta property="article:published_time" content="2024-03-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-06T11:54:19.860Z">
+<meta property="article:author" content="stech2333">
+<meta property="article:tag" content="else">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/own.jpg"><link rel="shortcut icon" href="/img/own.jpg"><link rel="canonical" href="http://example.com/posts/234233.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"Author: stech2333","link":"Link: ","source":"Source: stech2333的小窝","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机导论论文',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-06 19:54:19'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/own.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/back_01.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="stech2333的小窝"><span class="site-name">stech2333的小窝</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机导论论文</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-03-06T11:54:19.860Z" title="Updated 2024-03-06 19:54:19">2024-03-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/else/">else</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机导论论文"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('/img/back_01.jpg');"></div><article class="post-content" id="article-container"><hr>
+<h2 id="从cooook博客中摘抄的小东西"><a href="#从cooook博客中摘抄的小东西" class="headerlink" title="从cooook博客中摘抄的小东西"></a>从cooook博客中摘抄的小东西</h2><h3 id="1．缓冲区溢出漏洞"><a href="#1．缓冲区溢出漏洞" class="headerlink" title="1．缓冲区溢出漏洞"></a>1．缓冲区溢出漏洞</h3><p>在当前网络与分布式系统安全中，被广泛利用的50%以上都是缓冲区溢出，而缓冲区溢出中最危险的又是堆栈溢出。计算机程序一般都会使用到一些内存，或用作程序内部使用，或存放用户输入的数据，这样的内存一般称为缓冲区。举个例子，在我们C语言中经常会使用到一个函数getchar，这是从标准输入设备中读取一个字符，但当我们运行某些程序，<br>如 </p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line">int <span class="function"><span class="title">main</span></span>()</span><br><span class="line">{</span><br><span class="line">char a;</span><br><span class="line"><span class="keyword">while</span>(a=getchar())</span><br><span class="line">{</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%c\n"</span>,a);</span><br><span class="line">} </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>这个函数时，我们会发现，并不是我们输入一个字符，它便输出一个字符，而只有当我们按下换行符，才输出字符，事实上，键盘（输入设备）与计算机（主机）中间存在一个缓冲区，我们的输入存到了缓冲区，这个缓冲区采用行缓冲的方式（还有全缓冲与不带缓冲）遇到换行符时将缓冲区的内容发送给到主机，程序运行。缓冲区溢出简单的说就是计算机对接收的输入数据没有进行有效的检测（理想的情况是程序检查数据长度并不允许输入超过缓冲区长度的字符），向缓冲区内填充数据时超过了缓冲区本身的容量，而导致数据溢出到被分配空间之外的内存空间，使得溢出的数据覆盖了其他内存空间的数据。<br>在最初，人们并不那么重视数据安全的时候，出现了大量的溢出漏洞（C语言编译器对缓冲区长度不加以检测，C语言内部不对用户输入不做任何检查的gets，strcpy，strcat等函数），这也就导致了后来1988年Morris蠕虫病毒在互联网泛滥，造成近亿美元损失的灾难。</p>
+<h3 id="2-栈溢出漏洞"><a href="#2-栈溢出漏洞" class="headerlink" title="2.栈溢出漏洞"></a>2.栈溢出漏洞</h3><p>再来说说栈溢出漏洞，简单来说，栈是一种具有特殊访问方式的存储空间，特殊之处在于先入栈的元素后出栈，且由高位向低位生长（栈顶指针%esp指向低位，栈底指针%ebp指向高位）程序的汇编中, 代码段和数据段分开储存, 数据段有栈储存(严谨来说内存栈并不在数据段), 代码段没有在代码栈中, 当运行到第i行时, eip指向第i+1行, eip的跳转可以实现函数的多种功能.这就不得不谈及到函数的调用方式了，编译器通过栈来对函数进行调用。在一个程序向栈中某个变量写入数据时，写入的字节数超过了这个变量本身所申请的字节数，这样，超过的部分字节溢出到相邻的栈中的变量，改变了它的值。这种溢出（改变了其他变量的值）轻则导致程序结果出错，重（溢出覆盖了返回地址，导致程序返回地址遭劫持）则可能会被黑客利用，轻而易举拿到你计算机的Shell<br>获取到对你计算机的掌控权。堆溢出更为复杂，但原理相似，所以略过不写。</p>
+<p>Nodejs与Git的开发给前端，各种软件应用的开发提供了极大的便利，然而也因为不注重安全，产生了非常多的安全隐患，其中就关于web网络应用程序的攻击方法就层出不穷，SQL注入攻击，跨站脚本XSS攻击，跨站请求伪造等等。</p>
+<h2 id="二：计算机硬件系统的结构以及工作原理"><a href="#二：计算机硬件系统的结构以及工作原理" class="headerlink" title="二：计算机硬件系统的结构以及工作原理"></a>二：计算机硬件系统的结构以及工作原理</h2><p>说到计算机硬件系统，就离不开哈佛结构与冯—诺依曼结构，在这里简要介绍冯诺依曼结构的组成。冯诺依曼结构由I/O设备（输入设备，输出设备），存储器，控制器，运算器五大结构组成<br><img src="https://i.loli.net/2020/02/12/ohpnDMGJjs1W8ef.png" alt="早期的冯·诺依曼结构图"> “早期的冯·诺依曼结构图”)</p>
+<ul>
+<li>1.总线<br>贯穿整个系统的是一组电子管道，称为总线，它负责携带信息字节并负责在各个部件间传递。例如说CPU就是通过三类总线—地址总线，控制总线和数据总线来进行对内存的读写。<br>CPU通过地址总线发出地址信息，通过控制总线发出读（写）命令，最后存储器将指定地址的内存单元中的数据通过数据发送到CPU（或者由CPU通过数据总线发送数据到指定地址的内存单元中存储下来），操作完成<br>总线是一根根导线的集合，因此总线的传输能力与导线的根数有关，导线根数越多，传输速度越快（例如说地址总线宽度为16，一次寻址能力即为8kb）</li>
+<li>2.I/O设备<br>即输入输出设备，一切能与计算机进行数据传输的硬件都是I/O设备，最常见的输入设备有鼠标，键盘，软盘，光驱等等，常见输出设配有打印机，显示屏，硬盘等</li>
+<li>3.主存<br>内存主要分为ROM（只读存储器）以及RAM（随机存储器）。RAM用于存放CPU使用的绝大部分程序和数据，但关机断电后数据会消失，因此一般用ROM来存储固定的系统软件以及字库，用RAM来存储操作系统，各种软件，输入以及输出数据，中间交换结果即与外存交换的信息。</li>
+<li>4.处理器<br>中央处理器即CPU，一个典型的CPU由控制器，运算器，寄存器组成，各部分之间靠总线相连。当CPU运行一个程序，操作数从（通用）寄存器或者存储器运输到CPU中的算术逻辑部件（ALU），进行算数运算或者逻辑运算后的结果可以继续放入寄存器或者存储器中，<br>（GPRS）寄存器中的数据也可以通过MDR输送到存储器，反之亦然。操作产生的（存储在标志寄存器内的）标志信息（如计算产生的符号，是否溢出，是否进位）输送进入控制器影响后续程序的进行。每条指令都存在一个地址，要使这条的指令运行，要首先将地址要先送到 一个特定的寄存器—程序计数器PC，然后送到MAR（一个地址寄存器）中，操作数的地址（可能在通用寄存器组中）也要送入MAR中，再送入存储器。指令在送到控制器中执行时还要先放入IR（指令寄存器）中，从存储器中取来的指令先送到MDR，然后再到IR，再送到指令寄存器送到控制器，控制器控制，一个线程完成。由CPU和存储器组成主机，主机与I/O设备通过总线，I/O桥连接，输入输出。进程结束。CPU内部还存在Cache（高速缓存）来缓和中央处理器和主存储器之间速度不匹配的矛盾，提高计算机系统性能，这里就不加以赘述<br>![OI2XHQHI75$[[O]B_<code>T5OLQ](E:\myblog\hexo\markdown\修真四万年\其他\OI2XHQHI75$[[O]B_</code>T5OLQ.png)</li>
+<li>5.程序的执行—开始执行程序（程序在执行前数据和指令已经放入存储器中，每条指令和每个数据都有地址，，指令按序存放（由OP，ADDR字段组成，程序的起始地址都放在PC中）<br>第一步：根据PC取指令<br>第二步：指令译码<br>第三步：取操作数<br>第四步：指令执行<br>第五步：回写结果<br>第六步：修改PC的值，执行下一条指令。 </li>
+</ul>
+<hr>
+<h2 id="三：程序设计语言"><a href="#三：程序设计语言" class="headerlink" title="三：程序设计语言"></a>三：程序设计语言</h2><ul>
+<li>1.第一代程序设计语言<br>机器语言是第一代程序设计语言，是机器指令的集合，作为最初的程序设计语言，机器语言靠0与1进行编程，可以直接运行在计算机上运行，但由于晦涩难懂和不易查错以及难以书写和阅读记忆，阻碍了整个行业的发展。于是接下来就出现了第二代程序设计语言—汇编语言</li>
+<li>2.第二代程序设计语言<br>与机器语言相比，汇编语言用符号表示，不仅有利于程序员的理解记忆，而且为不同高级语言的不同编译器提供了通用的输出语言。但是机器却不能理解汇编语言，只有通过汇编器将汇编指令转化为机器指令，才能被机器识别，最终执行。但汇编语言也存在一些问题，在编写较复杂程序时，需要描写的细节过多，导致程序很长，同时由于不同机器的结构可能不同，汇编语言的可移植性得不到保障。为此，第三代程序设计语言，高级语言就出现了。汇编语言以及机器语言都是面向机器结构的语言，因此将他们都称机器语言。</li>
+<li>3.第三代程序设计语言<br>面向过程的语言以及面向对象的高级语言，需要编译或者解释（不生成目标文件）才能执行。</li>
+</ul>
+<hr>
+<p>参考文献及资料<br>《汇编语言》— 王爽<br>《深入理解计算机系统》—Randal E.Bryant , David R.O’Hallaron<br>《计算机科学概论》—J.Glenn Brookshear<br>《计算机系统基础》—袁春风</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/else/">else</a></div><div class="post_share"><div class="social-share" data-image="/img/own.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/2dds5.html" title="正则表达式"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">正则表达式</div></div></a></div><div class="next-post pull-right"><a href="/posts/f00d7dec.html" title="Git 简易教程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">Git 简易教程</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/hbj78.html" title="数据结构01"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">数据结构01</div></div></a></div><div><a href="/posts/2dds5.html" title="正则表达式"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">正则表达式</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/own.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">stech2333</div><div class="author-info__description">总有一个人要离开......</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/stech2333"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/stech2333" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:stech2333@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">新建的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8Ecooook%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%91%98%E6%8A%84%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF"><span class="toc-number">1.</span> <span class="toc-text">从cooook博客中摘抄的小东西</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%8E%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.1.</span> <span class="toc-text">1．缓冲区溢出漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A0%88%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.2.</span> <span class="toc-text">2.栈溢出漏洞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%93%E6%9E%84%E4%BB%A5%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">二：计算机硬件系统的结构以及工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%EF%BC%9A%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">三：程序设计语言</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/123123.html" title="python爬虫">python爬虫</a><time datetime="2024-03-06T16:00:00.000Z" title="Created 2024-03-07 00:00:00">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/123123.html" title="Python PDB调试">Python PDB调试</a><time datetime="2024-03-06T16:00:00.000Z" title="Created 2024-03-07 00:00:00">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3e6b40be.html" title="Welcome to my Blog">Welcome to my Blog</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2ssc667f.html" title="STL-函数对象">STL-函数对象</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/653dw2ssa.html" title="STL-常用算法">STL-常用算法</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">©2020 - 2024 By stech2333</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

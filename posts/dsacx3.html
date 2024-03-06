@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>DOM | stech2333的小窝</title><meta name="author" content="stech2333"><meta name="copyright" content="stech2333"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JavaScript与DOM事件DOM（文档对象模型）Document Object Model当网页被加载时，游览器会创建DOM，DOM属于BOM的一部分，对document进行操作 DOM节点 nodeType 节点属性 nodeName 节点名称 nodeValue 节点值  JavaScript中的DOM（文档对象模型）提供了一组节点类型和相应的操作方法，用于访问、创建、修改和删除HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM">
+<meta property="og:url" content="http://example.com/posts/dsacx3.html">
+<meta property="og:site_name" content="stech2333的小窝">
+<meta property="og:description" content="JavaScript与DOM事件DOM（文档对象模型）Document Object Model当网页被加载时，游览器会创建DOM，DOM属于BOM的一部分，对document进行操作 DOM节点 nodeType 节点属性 nodeName 节点名称 nodeValue 节点值  JavaScript中的DOM（文档对象模型）提供了一组节点类型和相应的操作方法，用于访问、创建、修改和删除HTML">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/own.jpg">
+<meta property="article:published_time" content="2024-03-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-06T12:08:23.128Z">
+<meta property="article:author" content="stech2333">
+<meta property="article:tag" content="Web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/own.jpg"><link rel="shortcut icon" href="/img/own.jpg"><link rel="canonical" href="http://example.com/posts/dsacx3.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"Author: stech2333","link":"Link: ","source":"Source: stech2333的小窝","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DOM',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-06 20:08:23'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/own.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/back_01.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="stech2333的小窝"><span class="site-name">stech2333的小窝</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DOM</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-03-06T12:08:23.128Z" title="Updated 2024-03-06 20:08:23">2024-03-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/">Web</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="DOM"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('/img/back_01.jpg');"></div><article class="post-content" id="article-container"><h3 id="JavaScript与DOM事件"><a href="#JavaScript与DOM事件" class="headerlink" title="JavaScript与DOM事件"></a>JavaScript与DOM事件</h3><p>DOM（文档对象模型）Document Object Model<br>当网页被加载时，游览器会创建DOM，DOM属于BOM的一部分，对document进行操作</p>
+<h4 id="DOM节点"><a href="#DOM节点" class="headerlink" title="DOM节点"></a>DOM节点</h4><ul>
+<li>nodeType 节点属性</li>
+<li>nodeName 节点名称</li>
+<li>nodeValue 节点值</li>
+</ul>
+<p>JavaScript中的DOM（文档对象模型）提供了一组节点类型和相应的操作方法，用于访问、创建、修改和删除HTML文档中的元素和内容。以下是常见的DOM节点类型及其操作方法：</p>
+<ol>
+<li><p>Document节点：</p>
+<ul>
+<li>获取Document节点：<code>document</code>。</li>
+<li>创建Element节点：<code>document.createElement(tagName)</code>。</li>
+<li>创建Text节点：<code>document.createTextNode(text)</code>。</li>
+<li>创建Comment节点：<code>document.createComment(text)</code>。</li>
+<li>创建Attribute节点：<code>document.createAttribute(name)</code>。</li>
+<li>创建DocumentFragment节点：<code>document.createDocumentFragment()</code>。</li>
+</ul>
+</li>
+<li><p>Element节点：</p>
+<ul>
+<li>获取Element节点：通过选择器、标签名、类名、id等方式。<ul>
+<li><code>document.querySelector(selector)</code>：根据CSS选择器获取第一个匹配的Element节点。</li>
+<li><code>document.querySelectorAll(selector)</code>：根据CSS选择器获取所有匹配的Element节点。</li>
+<li><code>document.getElementsByTagName(tagName)</code>：根据标签名获取一组Element节点。</li>
+<li><code>document.getElementsByClassName(className)</code>：根据类名获取一组Element节点。</li>
+<li><code>document.getElementById(id)</code>：根据id获取Element节点。</li>
+</ul>
+</li>
+<li>创建子节点：<ul>
+<li><code>element.appendChild(node)</code>：将一个节点添加为当前Element节点的子节点。</li>
+<li><code>element.insertBefore(newNode, referenceNode)</code>：在当前Element节点的子节点列表中的某个节点之前插入一个新节点。</li>
+</ul>
+</li>
+<li>修改属性：<ul>
+<li><code>element.getAttribute(name)</code>：获取Element节点的属性值。</li>
+<li><code>element.setAttribute(name, value)</code>：设置Element节点的属性值。</li>
+<li><code>element.removeAttribute(name)</code>：移除Element节点的属性。</li>
+</ul>
+</li>
+<li>克隆节点：<ul>
+<li><code>element.cloneNode(deep)</code>：克隆当前Element节点，deep参数指定是否克隆子节点。</li>
+</ul>
+</li>
+<li>替换节点：<ul>
+<li><code>element.replaceChild(newNode, oldNode)</code>：用一个新节点替换当前Element节点的某个子节点。</li>
+</ul>
+</li>
+<li>移除节点：<ul>
+<li><code>element.removeChild(node)</code>：从当前Element节点的子节点列表中移除一个节点。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Text节点：</p>
+<ul>
+<li>获取Text节点的内容：<code>textNode.textContent</code>。</li>
+<li>设置Text节点的内容：<code>textNode.textContent = newText</code>。</li>
+</ul>
+</li>
+<li><p>Comment节点：</p>
+<ul>
+<li>获取Comment节点的内容：<code>commentNode.textContent</code>。</li>
+<li>设置Comment节点的内容：<code>commentNode.textContent = newComment</code>。</li>
+</ul>
+</li>
+<li><p>Attribute节点：</p>
+<ul>
+<li>获取Attribute节点的名称：<code>attributeNode.name</code>。</li>
+<li>获取Attribute节点的值：<code>attributeNode.value</code>。</li>
+</ul>
+</li>
+<li><p>DocumentFragment节点：</p>
+<ul>
+<li>创建DocumentFragment节点：<code>document.createDocumentFragment()</code>。</li>
+<li>添加子节点：与Element节点的<code>appendChild</code>、<code>insertBefore</code>方法相同。</li>
+</ul>
+</li>
+<li><p>NodeList节点列表：</p>
+<ul>
+<li>获取NodeList节点列表：通过选择器、标签名、类名等方式。<ul>
+<li><code>document.querySelectorAll(selector)</code>：根据CSS选择器获取所有匹配的节点列表。</li>
+<li><code>element.getElementsByTagName(tagName)</code>：根据标签名获取一组节点列表。</li>
+<li><code>element.getElementsByClassName(className)</code>：根据类名获取一组节点列表。</li>
+</ul>
+</li>
+<li>遍历节点列表：可以使用<code>for...of</code>循环或索引访问。</li>
+</ul>
+</li>
+</ol>
+<p>JavaScript可以通过DOM改变hTML元素，HTML文本，HTML属性，CSS样式等，根据事件做出反应</p>
+<ol>
+<li><p>DOM操作HTML</p>
+<ul>
+<li><p>DOM获取元素</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过DOM获取元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//通过标签名，类名，id进行获取</span></span><br><span class="line"><span class="comment">//1. 通过id名获取 getElementById("id")  只有唯一一个</span></span><br><span class="line"><span class="keyword">var</span> oid = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"id名"</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 通过class获取 一个或多个 getELementsByClassName("class名") 获取HTMLCollection集合，类似于数组，使用下标访问</span></span><br><span class="line"><span class="keyword">var</span> oclass = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">"class名"</span>)</span><br><span class="line">oclass[<span class="number">0</span>].<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>){<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"点击第一个class元素"</span>)}</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过标签名获取元素 一个或多个 getElementsByTagName("标签名") HTMLCollection</span></span><br><span class="line"><span class="keyword">var</span> oItem = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">"标签名"</span>);</span><br><span class="line">oItem[<span class="number">0</span>].<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>){<span class="variable language_">this</span>.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">"yellow"</span>}</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过name获取元素 主要使用form表单 getElementsByName("name名") 返回NodeList，类数组</span></span><br><span class="line"><span class="keyword">var</span> oname = <span class="variable language_">document</span>.<span class="title function_">getElementsByName</span>(<span class="string">"name名"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过选择器的方式获取 selsctor,通过css选择器来获取元素</span></span><br><span class="line"><span class="comment">//只返回第一个元素</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelsctor</span>(css选择器，一个或者多个，中间使用逗号隔开)</span><br><span class="line"><span class="comment">//返回一个Nodelist，使用类似数组下标访问</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(css选择器，一个或多个，使用逗号隔开)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="E:\23\字节训练营前端基础\DOM获取.png" alt="image-20230912163006063"></p>
+<ul>
+<li><p>DOM获取属性 元素.getAttribute(“属性名”)</p>
+<p>属性名必须在元素内部才能被查询到，不然返回NULL</p>
+<p><img src="E:\23\字节训练营前端基础\获取元素属性.png" alt="image-20230924094924335"></p>
+</li>
+<li><p>设置属性     元素.setAttribute(“属性名”，属性值)</p>
+</li>
+<li><p>移除属性     元素.removeAttribute(“属性名”)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>DOM改变HTML</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//改变HTML输出流</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">"&lt;p&gt;段落&lt;/p&gt;"</span>);</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">writeln</span>(<span class="string">"hello , world"</span>);<span class="comment">//会对HTML输出流进行一个覆盖</span></span><br><span class="line"><span class="comment">//改变HTML内容</span></span><br><span class="line"><span class="comment">//innerHTML 获取/设置元素的内容  包含标签</span></span><br><span class="line"><span class="keyword">var</span> oBox = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"box1"</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(oBox.<span class="property">innerHTML</span>);<span class="comment">//获取</span></span><br><span class="line">oBox.<span class="property">innerHTML</span> = <span class="string">"这是一个盒子"</span>;</span><br><span class="line"><span class="title class_">OBox</span>.<span class="property">innerHTML</span> = <span class="string">"&lt;h2&gt;改变盒子的内容&lt;/h2&gt;"</span></span><br><span class="line"><span class="comment">//outerHTML 获取/设置元素的内容 包含标签，包含自身</span></span><br><span class="line">oBox.<span class="property">outerHTML</span> = <span class="string">"&lt;span&gt;文本标签&lt;/span&gt;"</span><span class="comment">//将oBox元素改为&lt;span&gt;</span></span><br><span class="line"><span class="comment">//innerText  获取/设置元素的文本内容</span></span><br><span class="line">oBox.<span class="property">innerText</span>=<span class="string">"标签内的文本内容"</span></span><br><span class="line"><span class="comment">//改变CSS</span></span><br><span class="line"><span class="comment">//获取style element.style</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(oBox.<span class="property">style</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(oHeader.<span class="property">style</span>);<span class="comment">//只能获取行内样式</span></span><br><span class="line"><span class="comment">//设置style element.style.property</span></span><br><span class="line">oBox.<span class="property">style</span> = <span class="string">"font-size:30px;color:red;"</span></span><br><span class="line">oBox.<span class="property">style</span>.<span class="property">font</span>-size = <span class="string">"30px"</span>;<span class="comment">//出现报错，左值不能使用连字符-</span></span><br><span class="line">oBox.<span class="property">style</span>.<span class="property">fontSize</span> = <span class="string">"30px"</span>;<span class="comment">//使用驼峰命名法</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="3">
+<li><p>JavaScript中this关键字</p>
+<p><img src="E:\23\字节训练营前端基础\this关键字.png" alt="image-20230924142426998"></p>
+<ul>
+<li><p>JavaScript中的继承</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person1 = {</span><br><span class="line">    <span class="attr">name</span>:<span class="string">"zjamh"</span>;</span><br><span class="line">    <span class="attr">age</span>:<span class="number">10</span>;</span><br><span class="line">    <span class="attr">func</span>:<span class="keyword">function</span>(<span class="params"><span class="keyword">from</span>, to</span>){</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>+<span class="string">"年龄 ："</span>+age+<span class="keyword">from</span>+<span class="string">" "</span>+to);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stack ={</span><br><span class="line">    <span class="attr">name</span>:<span class="string">"assad"</span>;</span><br><span class="line">    <span class="attr">age</span>:<span class="number">100</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> perwf = {</span><br><span class="line">    <span class="attr">name</span>:<span class="string">"xvsd"</span>;</span><br><span class="line">    <span class="attr">age</span>:<span class="number">21</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">person1.<span class="title function_">func</span>(<span class="string">"ASd"</span>,<span class="string">"sdfsd"</span>);<span class="comment">//直接调用方法</span></span><br><span class="line">person1.<span class="property">func</span>.<span class="title function_">call</span>(stack,<span class="string">"scxv"</span>,<span class="string">"asfdv"</span>);<span class="comment">//继承调用</span></span><br><span class="line">person1.<span class="property">func</span>.<span class="title function_">apply</span>(stack,[<span class="string">"xcsvfd"</span>,<span class="string">"dfsdf"</span>]);</span><br><span class="line">person1.<span class="property">func</span>.<span class="title function_">bind</span>(stack,<span class="string">"sdasd"</span>,<span class="string">"erew"</span>)();</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+</li>
+</ol>
+<h4 id="DOM增删改查（遍历）"><a href="#DOM增删改查（遍历）" class="headerlink" title="DOM增删改查（遍历）"></a>DOM增删改查（遍历）</h4><ol>
+<li><p>遍历</p>
+<p>通过一个元素查找另外一个元素</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//children 返回(元素)子节点</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(oWrap.<span class="property">children</span>);</span><br><span class="line"><span class="comment">//childNodes 返回子节点，包含了空节点（text,包括标签与标签之间被解析成空格的换行）</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(oWrap.<span class="property">childNodes</span>)</span><br><span class="line"><span class="comment">//firstElementChild   返回第一个子元素节点</span></span><br><span class="line"><span class="comment">//firstChild          返回第一个子节点</span></span><br><span class="line"><span class="comment">//lastChild           返回最后一个子节点</span></span><br><span class="line"><span class="comment">//lastElementChild    返回最后一个子元素节点</span></span><br><span class="line"><span class="comment">//parentNode          返回父节点（与parentElementNode返回一致）</span></span><br><span class="line"><span class="comment">//offsetParent        定义关系，第一个有定位属性的父节点，如果没有，则返回body</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>兄弟元素（同胞元素）</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//nextElementSibling     返回下一个兄弟（元素）节点</span></span><br><span class="line"><span class="comment">//nextSibling     返回下一个兄弟节点</span></span><br><span class="line"><span class="comment">//previousElementSibling     返回上一个兄弟（元素）节点</span></span><br><span class="line"><span class="comment">//previousSibling     返回上一个兄弟节点</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>创建元素（节点）</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newp = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">"P"</span>)<span class="comment">//创建一个p标签，标签名必须大写</span></span><br><span class="line">newp.<span class="property">innerText</span> = <span class="string">"这是新建的段落"</span></span><br><span class="line">newp.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">"pink"</span>;</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>添加元素（节点）</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//parentNode.appendChild(添加的节点)   向父元素子节点的末尾添加</span></span><br><span class="line"><span class="comment">//parentNode.insertBefore(添加的节点,参考的兄弟元素)  向兄弟元素前面添加</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>修改元素</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//parentNode.replaceChild(新元素，旧元素) 使用新元素替换掉旧元素</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>移除节点</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//parentNode.removeChild(要移除的节点)</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>DOM事件</p>
+<ul>
+<li><p>鼠标事件</p>
+<p><img src="E:\23\字节训练营前端基础\鼠标事件.png" alt="image-20230926172414777"></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//mouseleave   当鼠标指针移出元素时被触发</span></span><br><span class="line"><span class="comment">//mouseenter   当鼠标指针移动到元素上时触发</span></span><br><span class="line">  <span class="comment">//与mouseover,mouseout之间的区别是，mouseover跟mouseout进出子元素时也会触发事件，而leave与enter不会</span></span><br><span class="line"><span class="comment">//wheel事件    鼠标在元素上上下滚动时触发</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">var</span> oBj = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">"button"</span>)[<span class="number">0</span>];</span><br><span class="line">  oBj.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>){};</span><br><span class="line"> <span class="comment">//使用on+事件调用</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://zh.javascript.info/mouse-events-basics" title="鼠标事件">鼠标事件</a></p>
+</li>
+<li><p>键盘事件</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//keydown         某个键盘按键被按下</span></span><br><span class="line"><span class="comment">//keyup           某个键盘被按下并且松开</span></span><br><span class="line"><span class="comment">//keypress        某个键盘按键被按下并松开，不识别（上下左右，alt，shift，ctrl，backspace）</span></span><br><span class="line"><span class="keyword">var</span> aBox = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">"box"</span>);</span><br><span class="line"><span class="keyword">var</span> oDown = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"down"</span>);</span><br><span class="line">oDwn.<span class="property">onkeydown</span> = <span class="keyword">function</span>(<span class="params"></span>){</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"首先必须获取焦点，然后才能触发键盘事件"</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>表单事件</p>
+<p><img src="E:\23\字节训练营前端基础\表单事件.png" alt="image-20230926192759725"></p>
+</li>
+<li><p>剪切板事件<br><img src="E:\23\字节训练营前端基础\剪切板事件.png" alt="image-20230926195701262"></p>
+</li>
+<li><p>拖拽事件</p>
+<p><img src="E:\23\字节训练营前端基础\拖拽事件.png" alt="image-20230926195940898"></p>
+</li>
+<li><p>媒体事件，框架/对象事件</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="event-事件对象"><a href="#event-事件对象" class="headerlink" title="event 事件对象"></a>event 事件对象</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//事件对象，每一个事件都是对象</span></span><br><span class="line"><span class="keyword">var</span> oBtn = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">"button"</span>)</span><br><span class="line">oBtn[<span class="number">0</span>].<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params">event</span>){</span><br><span class="line">    event = event||<span class="variable language_">window</span>.<span class="property">event</span>;<span class="comment">//浏览器兼容</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(event);</span><br><span class="line">} </span><br><span class="line"><span class="comment">//键盘事件</span></span><br><span class="line"><span class="comment">//登录   搜索   回车</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">onkeydown</span> = <span class="keyword">function</span>(<span class="params">ev</span>){</span><br><span class="line">    ev = ev||<span class="variable language_">window</span>.<span class="property">event</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(ev)</span><br><span class="line">}</span><br><span class="line"><span class="comment">//altKey     返回当事件被触发时，"ALT"是否被按下</span></span><br><span class="line"><span class="comment">//ctrlKey    返回当事件被触发时，"CTRL"是否被按下</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><p><img src="E:\23\字节训练营前端基础\事件冒泡.png" alt="image-20240123161359534"></p>
+  <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(ev&amp;&amp;ev.<span class="property">stopPropagation</span>){</span><br><span class="line">    ev.<span class="title function_">stopPropagation</span>();<span class="comment">//在IE游览器中取消冒泡事件</span></span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">    ev.<span class="property">cancelBUbble</span> = <span class="literal">true</span>;<span class="comment">//将冒泡事件取消</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="E:\23\字节训练营前端基础\冒泡.png" alt="image-20240123163433586"><img src="E:\23\字节训练营前端基础\冒泡2.png" alt="image-20240123163520019"></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Web/">Web</a></div><div class="post_share"><div class="social-share" data-image="/img/own.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/65756dfz.html" title="html与css"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">html与css</div></div></a></div><div class="next-post pull-right"><a href="/posts/754dfdw.html" title="ES6"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">ES6</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/sisnf34.html" title="BOM对象"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">BOM对象</div></div></a></div><div><a href="/posts/65756dfz.html" title="html与css"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">html与css</div></div></a></div><div><a href="/posts/754dfdw.html" title="ES6"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">ES6</div></div></a></div><div><a href="/posts/iuygh56.html" title="Javascript语法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">Javascript语法</div></div></a></div><div><a href="/posts/hghgs3.html" title="CSS属性"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">CSS属性</div></div></a></div><div><a href="/posts/mhvgb76.html" title="Javascript数组"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">Javascript数组</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/own.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">stech2333</div><div class="author-info__description">总有一个人要离开......</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/stech2333"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/stech2333" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:stech2333@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">新建的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript%E4%B8%8EDOM%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">JavaScript与DOM事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DOM%E8%8A%82%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">DOM节点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DOM%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%EF%BC%88%E9%81%8D%E5%8E%86%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">DOM增删改查（遍历）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#event-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.3.</span> <span class="toc-text">event 事件对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="toc-number">1.4.</span> <span class="toc-text">事件冒泡</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/123123.html" title="python爬虫">python爬虫</a><time datetime="2024-03-06T16:00:00.000Z" title="Created 2024-03-07 00:00:00">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/123123.html" title="Python PDB调试">Python PDB调试</a><time datetime="2024-03-06T16:00:00.000Z" title="Created 2024-03-07 00:00:00">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3e6b40be.html" title="Welcome to my Blog">Welcome to my Blog</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2ssc667f.html" title="STL-函数对象">STL-函数对象</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/653dw2ssa.html" title="STL-常用算法">STL-常用算法</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">©2020 - 2024 By stech2333</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

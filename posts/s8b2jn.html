@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Python语法 | stech2333的小窝</title><meta name="author" content="stech2333"><meta name="copyright" content="stech2333"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="字符串的索引与切片字符串的索引 1234str = &amp;#x27;python&amp;#x27;      # 字符串存在索引，索引从零开始print(type(str))    # 输出为<class &amp;#x27;str&amp;#x27;>，str为string类型print(str[0])       # 输出为p，字符串的第一个字符print(str[-1])      # 输出为n，字符串的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python语法">
+<meta property="og:url" content="http://example.com/posts/s8b2jn.html">
+<meta property="og:site_name" content="stech2333的小窝">
+<meta property="og:description" content="字符串的索引与切片字符串的索引 1234str = &amp;#x27;python&amp;#x27;      # 字符串存在索引，索引从零开始print(type(str))    # 输出为<class &amp;#x27;str&amp;#x27;>，str为string类型print(str[0])       # 输出为p，字符串的第一个字符print(str[-1])      # 输出为n，字符串的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/own.jpg">
+<meta property="article:published_time" content="2024-03-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-06T12:24:35.625Z">
+<meta property="article:author" content="stech2333">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/own.jpg"><link rel="shortcut icon" href="/img/own.jpg"><link rel="canonical" href="http://example.com/posts/s8b2jn.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"Author: stech2333","link":"Link: ","source":"Source: stech2333的小窝","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python语法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-06 20:24:35'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/own.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/back_01.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="stech2333的小窝"><span class="site-name">stech2333的小窝</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Python语法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-03-06T12:24:35.625Z" title="Updated 2024-03-06 20:24:35">2024-03-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/python/">python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python语法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('/img/back_01.jpg');"></div><article class="post-content" id="article-container"><h4 id="字符串的索引与切片"><a href="#字符串的索引与切片" class="headerlink" title="字符串的索引与切片"></a>字符串的索引与切片</h4><p>字符串的索引</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">str</span> = <span class="string">'python'</span>      <span class="comment"># 字符串存在索引，索引从零开始</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">str</span>))    <span class="comment"># 输出为&lt;class 'str'&gt;，str为string类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>[<span class="number">0</span>])       <span class="comment"># 输出为p，字符串的第一个字符</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>[-<span class="number">1</span>])      <span class="comment"># 输出为n，字符串的最后一个字符，与str[5]等效</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>字符串的切片</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">使用两个冒号分割三个数字</span></span><br><span class="line"><span class="string">[起始：结束：步长]</span></span><br><span class="line"><span class="string">起始默认从零开始，切片左闭右开，即在结束位前一位截止，步长指间隔数</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="built_in">str</span> = <span class="string">'python'</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>[<span class="number">0</span>:<span class="number">3</span>:<span class="number">1</span>])     <span class="comment"># 输出pyt</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>[:<span class="number">3</span>:<span class="number">2</span>])      <span class="comment"># 输出pt</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>[:-<span class="number">2</span>])       <span class="comment"># 输出pyth</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="python字节串"><a href="#python字节串" class="headerlink" title="python字节串"></a>python字节串</h4><p>bytes 类型用来表示一个字节串。“字节串“不是编程术语，是我自己“捏造”的一个词，用来和字符串相呼应。</p>
+<p>字节串（bytes）和字符串（string）的对比：</p>
+<ul>
+<li>字符串由若干个字符组成，以字符为单位进行操作；字节串由若干个字节组成，以字节为单位进行操作。</li>
+<li>字节串和字符串除了操作的数据单元不同之外，它们支持的所有方法都基本相同。</li>
+<li>字节串和字符串都是不可变序列，不能随意增加和删除数据。</li>
+</ul>
+<p>bytes 只负责以字节序列的形式（二进制形式）来存储数据，至于这些数据到底表示什么内容（字符串、数字、图片、音频等），完全由程序的解析方式决定。如果采用合适的字符编码方式（字符集），字节串可以恢复成字符串；反之亦然，字符串也可以转换成字节串。                                                                                                                     </p>
+<p>说白了，bytes 只是简单地记录内存中的原始数据，至于如何使用这些数据，bytes 并不在意，你想怎么使用就怎么使用，bytes 并不约束你的行为。</p>
+<p>bytes 类型的数据非常适合在互联网上传输，可以用于网络通信编程；bytes 也可以用来存储图片、音频、视频等二进制格式的文件。</p>
+<p>字符串和 bytes 存在着千丝万缕的联系，我们可以通过字符串来创建 bytes 对象，或者说将字符串转换成 bytes 对象。有以下三种方法可以达到这个目的：</p>
+<ul>
+<li>如果字符串的内容都是 ASCII 字符，那么直接在字符串前面添加<code>b</code>前缀就可以转换成 bytes。</li>
+<li>bytes 是一个类，调用它的构造方法，也就是 bytes()，可以将字符串按照指定的字符集转换成 bytes；如果不指定字符集，那么默认采用 UTF-8。</li>
+<li>字符串本身有一个 encode() 方法，该方法专门用来将字符串按照指定的字符集转换成对应的字节串；如果不指定字符集，那么默认采用 UTF-8。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过构造函数创建空 bytes</span></span><br><span class="line">b1 = <span class="built_in">bytes</span>()</span><br><span class="line"><span class="comment"># 通过空字符串创建空 bytes</span></span><br><span class="line">b2 = <span class="string">b''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过b前缀将字符串转换成 bytes</span></span><br><span class="line">b3 = <span class="string">b'http://c.biancheng.net/python/'</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"b3: "</span>, b3)</span><br><span class="line"><span class="built_in">print</span>(b3[<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(b3[<span class="number">7</span>:<span class="number">22</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为bytes() 方法指定字符集</span></span><br><span class="line">b4 = <span class="built_in">bytes</span>(<span class="string">'C语言中文网8岁了'</span>, encoding=<span class="string">'UTF-8'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"b4: "</span>, b4)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过encode()方法将字符串转换成 bytes</span></span><br><span class="line">b5 = <span class="string">"C语言中文网8岁了"</span>.encode(<span class="string">'UTF-8'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"b5: "</span>, b5)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>对于非 ASCII 字符，print 输出的是它的字符编码值（十六进制形式），而不是字符本身。非 ASCII 字符一般占用两个字节以上的内存，而 bytes 是按照单个字节来处理数据的，所以不能一次处理多个字节。<br>bytes 类也有一个 decode() 方法，通过该方法可以将 bytes 对象转换为字符串。紧接上面的程序，添加以下代码：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#通过 decode() 方法将 bytes 转换成字符串</span></span><br><span class="line">str1 = b5.decode(<span class="string">'UTF-8'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"str1: "</span>, str1)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="input函数"><a href="#input函数" class="headerlink" title="input函数"></a>input函数</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">str</span> = <span class="built_in">input</span>(tipmsg)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">说明：</span></span><br><span class="line"><span class="string">input()函数返回的类型为str类型，可使用类型转换成为需要的类型</span></span><br><span class="line"><span class="string">str 表示一个字符串类型的变量，input 会将读取到的字符串放入 str 中。</span></span><br><span class="line"><span class="string">tipmsg 表示提示信息，它会显示在控制台上，告诉用户应该输入什么样的内容；如果不写 tipmsg，就不会有任何提示信息。</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>我们可以使用 Python 内置函数将字符串转换成想要的类型，比如：</p>
+<ul>
+<li>int(string) 将字符串转换成 int 类型；</li>
+<li>float(string) 将字符串转换成 float 类型；</li>
+<li>bool(string) 将字符串转换成 bool 类型。</li>
+</ul>
+<h4 id="print函数"><a href="#print函数" class="headerlink" title="print函数"></a>print函数</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (value,...,sep=<span class="string">''</span>,end=<span class="string">'\n'</span>,file=sys.stdout,flush=<span class="literal">False</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>从上面的语法格式可以看出，value 参数可以接受任意多个变量或值，因此 print() 函数完全可以输出多个值。例如如下代码：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">user_name ＝ <span class="string">'Charlie'</span></span><br><span class="line">user_age = <span class="number">8</span> <span class="comment">#同时输出多个变量和字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"读者名："</span>,user_name,<span class="string">"年龄："</span>,user_age) </span><br><span class="line"><span class="comment"># 输出 读者名： Charlie 年龄： 8</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>从输出结果来看，使用 print() 函数输出多个变量时，print() 函数默认以空格隔开多个变量，如果读者希望改变默认的分隔符，可通过 sep 参数进行设置。例如输出语句：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 同时输出多个变量和字符串，指定分隔符</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"读者名："</span> ,user_name,<span class="string">"年龄："</span>,user_age,sep=<span class="string">'|'</span>)</span><br><span class="line"><span class="comment"># 输出 读者名：|Charlie|年龄：|8</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在默认情况下，print() 函数输出之后总会换行，这是因为 print() 函数的 end 参数的默认值是“\n”，这个“\n”就代表了换行。如果希望 print() 函数输出之后不会换行，则重设 end 参数即可</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置end 参数，指定输出之后不再换行</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">40</span>,<span class="string">'\t'</span>,end＝<span class="string">""</span>)</span><br><span class="line"><span class="built_in">print</span>(5O,<span class="string">'\t'</span>,end＝<span class="string">""</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">60</span>,<span class="string">'\t'</span>,end＝<span class="string">""</span>)</span><br><span class="line"><span class="comment"># 输出 40  50  60</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>file 参数指定 print() 函数的输出目标，file 参数的默认值为 sys.stdout，该默认值代表了系统标准输出，也就是屏幕，因此 print() 函数默认输出到屏幕。实际上，完全可以通过改变该参数让 print() 函数输出到特定文件中</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">"demo.txt"</span>,<span class="string">"w"</span>)<span class="comment">#打开文件以便写入</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'沧海月明珠有泪'</span>,file=f)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'蓝田日暖玉生烟'</span>,file=f)</span><br><span class="line">f.close()</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">上面程序中，open() 函数用于打开 demo.txt 文件，接连 2 个 print 函数会将这 2 段字符串依次写入此文件，最后调用 close() 函数关闭文件，教程后续章节还会详细介绍关于文件操作的内容</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>print() 函数的 flush 参数用于控制输出缓存，该参数一般保持为 False 即可，这样可以获得较好的性能。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a></div><div class="post_share"><div class="social-share" data-image="/img/own.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/sbz02bz.html" title="图像处理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">图像处理</div></div></a></div><div class="next-post pull-right"><a href="/posts/hbj78.html" title="数据结构01"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">数据结构01</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/123123.html" title="python爬虫"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-07</div><div class="title">python爬虫</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/own.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">stech2333</div><div class="author-info__description">总有一个人要离开......</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/stech2333"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/stech2333" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:stech2333@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">新建的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%B4%A2%E5%BC%95%E4%B8%8E%E5%88%87%E7%89%87"><span class="toc-number">1.</span> <span class="toc-text">字符串的索引与切片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#python%E5%AD%97%E8%8A%82%E4%B8%B2"><span class="toc-number">2.</span> <span class="toc-text">python字节串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#input%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">input函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#print%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">print函数</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/123123.html" title="python爬虫">python爬虫</a><time datetime="2024-03-06T16:00:00.000Z" title="Created 2024-03-07 00:00:00">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/123123.html" title="Python PDB调试">Python PDB调试</a><time datetime="2024-03-06T16:00:00.000Z" title="Created 2024-03-07 00:00:00">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3e6b40be.html" title="Welcome to my Blog">Welcome to my Blog</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2ssc667f.html" title="STL-函数对象">STL-函数对象</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/653dw2ssa.html" title="STL-常用算法">STL-常用算法</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">©2020 - 2024 By stech2333</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

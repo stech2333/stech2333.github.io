@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>PHP语法 | stech2333的小窝</title><meta name="author" content="stech2333"><meta name="copyright" content="stech2333"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="PHP是脚本语言，不需要事先编译，在服务器端运行，在各个系统均可运行 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263<?php /* PHP语言标记 	开始标记 <?php 	结束标记 ?> 指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP语法">
+<meta property="og:url" content="http://example.com/posts/782398f.html">
+<meta property="og:site_name" content="stech2333的小窝">
+<meta property="og:description" content="PHP是脚本语言，不需要事先编译，在服务器端运行，在各个系统均可运行 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263<?php /* PHP语言标记 	开始标记 <?php 	结束标记 ?> 指">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/own.jpg">
+<meta property="article:published_time" content="2024-03-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-06T12:03:57.107Z">
+<meta property="article:author" content="stech2333">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/own.jpg"><link rel="shortcut icon" href="/img/own.jpg"><link rel="canonical" href="http://example.com/posts/782398f.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"Author: stech2333","link":"Link: ","source":"Source: stech2333的小窝","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'PHP语法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-06 20:03:57'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/own.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/back_01.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="stech2333的小窝"><span class="site-name">stech2333的小窝</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">PHP语法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-03-06T12:03:57.107Z" title="Updated 2024-03-06 20:03:57">2024-03-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/PHP/">PHP</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="PHP语法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('/img/back_01.jpg');"></div><article class="post-content" id="article-container"><p>PHP是脚本语言，不需要事先编译，在服务器端运行，在各个系统均可运行</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment"> PHP语言标记</span></span><br><span class="line"><span class="comment"> 	开始标记 &lt;?php</span></span><br><span class="line"><span class="comment"> 	结束标记 ?&gt;</span></span><br><span class="line"><span class="comment"> 指令分隔符";",每一句PHP语句后都应该添加分隔符，表示该句话的结束(结束标记隐含一个";")</span></span><br><span class="line"><span class="comment"> PHP注释同css，单行用//</span></span><br><span class="line"><span class="comment"> PHP代码忽略多个空格，tab制表键，换行符的影，因此可以利用空格等来使代码整洁，提高可读性</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> PHP是一门弱类型语言，变量在第一次赋值时被创建</span></span><br><span class="line"><span class="comment"> 变量命名规则</span></span><br><span class="line"><span class="comment">     1.PHP严格区分大小写</span></span><br><span class="line"><span class="comment">     2.变量名称以字母或者下划线开始</span></span><br><span class="line"><span class="comment">     3.变量以$符号开始，后面跟着变量名称。$变量名 = 变量值</span></span><br><span class="line"><span class="comment"> 变量引用命名(别名)</span></span><br><span class="line"><span class="comment"> $变量名2 = &amp; $变量名1</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> 数据类型:</span></span><br><span class="line"><span class="comment"> 		String(字符串),Integer(整型数据),Float(浮点数),Boolean(布尔值),Array(数组),          		Object(对象),NULL(空值)</span></span><br><span class="line"><span class="comment"> 		 使用var_dump(变量名)可以输出变量类型</span></span><br><span class="line"><span class="comment"> String(字符串)</span></span><br><span class="line"><span class="comment"> 		单引号，双引号，定界符&lt;&lt;&lt;。并置运算符"."，用于将两个字符串连接在一起</span></span><br><span class="line"><span class="comment"> 数组：</span></span><br><span class="line"><span class="comment">    ·索引数组 - 带有数字索引的数组</span></span><br><span class="line"><span class="comment">    ·关联数组 - 带有指定键的数组</span></span><br><span class="line"><span class="comment">    ·多维数组 - 包含一个或多个数组的数组</span></span><br><span class="line"><span class="comment">    使用array()函数来创建数组</span></span><br><span class="line"><span class="comment">        $数组名 = array(参数1，参数2...);</span></span><br><span class="line"><span class="comment">        $数组名 = array(索引值1 =&gt; 参数1 , 索引值2 =&gt; 参数2)</span></span><br><span class="line"><span class="comment">     使用count(数组名)来获得数组中变量数量</span></span><br><span class="line"><span class="comment">     </span></span><br><span class="line"><span class="comment">     遍历数组</span></span><br><span class="line"><span class="comment">     	for循环</span></span><br><span class="line"><span class="comment">     	foreach(数组名 as $value){</span></span><br><span class="line"><span class="comment">     	遍历数组</span></span><br><span class="line"><span class="comment">     	}</span></span><br><span class="line"><span class="comment">     	foreach(数组名 as $key =&gt; $value){</span></span><br><span class="line"><span class="comment">     	遍历关联数组</span></span><br><span class="line"><span class="comment">     	}</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> 变量的作用域：</span></span><br><span class="line"><span class="comment"> Local，global，static，parameter</span></span><br><span class="line"><span class="comment"> 在所有函数外部定义的变量有全局作用域，要在函数内访问一个全局变量，需要使用global关键字</span></span><br><span class="line"><span class="comment"> 在函数内部声明的变量是局部变量，仅能在函数内部使用(在不同函数内可以声明同名变量)</span></span><br><span class="line"><span class="comment"> PHP将所有的全局变量存储在一个$GLOBALS[index]的数组内，index保存变量名，这个数组可以在函数内部   被访问</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> 常量</span></span><br><span class="line"><span class="comment">     常量只能包含bool，int，float，string类型的数据，一个常量一经被定义，在PHP脚本执行期间就不	能被改变或取消定义，常量的作用域是全局，使用define来创建</span></span><br><span class="line"><span class="comment">     define(常量名称,常量值,case_insensitive)</span></span><br><span class="line"><span class="comment">     case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写不敏感。默认是大小写敏感的</span></span><br><span class="line"><span class="comment"> 预定义常量（魔术常量）</span></span><br><span class="line"><span class="comment"> 	预定义常量是经过PHP内核定义的一些常量，通常以__开头，可以直接使用，如:__FILE__</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> 逻辑或：or 或者 ||         逻辑与：and 或者 &amp;&amp;         逻辑异或： xor    逻辑非： ！</span></span><br><span class="line"><span class="comment"> 特殊运算符 </span></span><br><span class="line"><span class="comment"> 		``  可以将系统的命令放在里面 如：$a = 'ipconfig';</span></span><br><span class="line"><span class="comment"> 		@   屏蔽表达式可能发生的错误</span></span><br><span class="line"><span class="comment"> 		=&gt; 用于关联数组键值对的匹配</span></span><br><span class="line"><span class="comment"> 		instanceof</span></span><br><span class="line"><span class="comment"> 		</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">自定义函数</span><br><span class="line"><span class="function"><span class="keyword">function</span> 函数名称(<span class="params">参数<span class="number">1</span>，参数<span class="number">2</span>.....</span>)</span>{</span><br><span class="line">函数体;</span><br><span class="line">}</span><br><span class="line">参数传递</span><br><span class="line">    <span class="number">1</span>.按值传递参数</span><br><span class="line">    <span class="number">2</span>，按引用传递参数</span><br><span class="line">    <span class="number">3</span>.函数形式参数设置默认值</span><br><span class="line">    <span class="number">4</span>.可变长度参数列表</span><br><span class="line">    	<span class="title function_ invoke__">func_get_args</span>();</span><br><span class="line">		<span class="title function_ invoke__">func_get_arg</span>();</span><br><span class="line">		<span class="title function_ invoke__">func_num_args</span>();</span><br><span class="line">可变函数(变量函数)</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line">    	<span class="keyword">echo</span> <span class="string">"我是test函数"</span>;</span><br><span class="line">	}</span><br><span class="line">	<span class="variable">$a</span> = <span class="string">'test'</span>;</span><br><span class="line">	<span class="variable">$a</span>();<span class="comment">//相当于调用test函数</span></span><br><span class="line">内部(内置)函数</span><br><span class="line">    PHP内核提供的现成的函数或者结构，开启特定的PHP拓展模块后使用</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="预定义超全局变量"><a href="#预定义超全局变量" class="headerlink" title="预定义超全局变量"></a><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/php/php_superglobals.asp">预定义超全局变量</a></h4><h4 id="时间与日期"><a href="#时间与日期" class="headerlink" title="时间与日期"></a>时间与日期</h4><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">设置时区：</span><br><span class="line">	<span class="title function_ invoke__">date_default_timezone_set</span>(<span class="string">'时区'</span>);</span><br><span class="line">获取当前时间unix时间戳:</span><br><span class="line">	<span class="title function_ invoke__">time</span>();</span><br><span class="line">获取指定时间的unix时间戳：</span><br><span class="line">    <span class="title function_ invoke__">mktime</span>(参数);参数为指定时间</span><br><span class="line">从Unix时间戳获取时间日期：</span><br><span class="line">    <span class="title function_ invoke__">date</span>(参数表);如：<span class="title function_ invoke__">date</span>(<span class="string">'Y-m-d G:i:s'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/PHP/">PHP</a></div><div class="post_share"><div class="social-share" data-image="/img/own.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/4ed61cef.html" title="前端语言串讲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">前端语言串讲</div></div></a></div><div class="next-post pull-right"><a href="/posts/8sydh6.html" title="PHP文件"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">PHP文件</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/8sydh6.html" title="PHP文件"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">PHP文件</div></div></a></div><div><a href="/posts/b23s8h.html" title="会话控制"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">会话控制</div></div></a></div><div><a href="/posts/sbz02bz.html" title="图像处理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">图像处理</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/own.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">stech2333</div><div class="author-info__description">总有一个人要离开......</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/stech2333"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/stech2333" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:stech2333@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">新建的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E5%AE%9A%E4%B9%89%E8%B6%85%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">预定义超全局变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E4%B8%8E%E6%97%A5%E6%9C%9F"><span class="toc-number">3.</span> <span class="toc-text">时间与日期</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/123123.html" title="python爬虫">python爬虫</a><time datetime="2024-03-06T16:00:00.000Z" title="Created 2024-03-07 00:00:00">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/123123.html" title="Python PDB调试">Python PDB调试</a><time datetime="2024-03-06T16:00:00.000Z" title="Created 2024-03-07 00:00:00">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3e6b40be.html" title="Welcome to my Blog">Welcome to my Blog</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2ssc667f.html" title="STL-函数对象">STL-函数对象</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/653dw2ssa.html" title="STL-常用算法">STL-常用算法</a><time datetime="2024-03-05T16:00:00.000Z" title="Created 2024-03-06 00:00:00">2024-03-06</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">©2020 - 2024 By stech2333</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
