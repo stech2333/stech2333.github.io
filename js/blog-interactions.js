@@ -113,26 +113,30 @@
   filterNotes();
 })();
 
-// Keep the drafts link on previously generated pages until the next full Hexo deploy.
+// Keep the study link current on previously generated pages until the next full Hexo deploy.
 (function () {
   'use strict';
-  function addDraftLink() {
+  function updateStudyLink() {
     document.querySelectorAll('#menus .menus_items, #sidebar-menus .menus_items').forEach(function (menu) {
-      if (menu.querySelector('a[href="/drafts/"]')) return;
+      menu.querySelectorAll('a[href="/drafts/"]').forEach(function (link) {
+        link.href = '/study/';
+        link.innerHTML = '<i class="fa-fw fas fa-calendar-check"></i><span> 学习空间</span>';
+      });
+      if (menu.querySelector('a[href="/study/"]')) return;
       var item = document.createElement('div');
       item.className = 'menus_item';
       var link = document.createElement('a');
       link.className = 'site-page';
-      link.href = '/drafts/';
-      link.innerHTML = '<i class="fa-fw fas fa-pen-to-square"></i><span> 草稿</span>';
+      link.href = '/study/';
+      link.innerHTML = '<i class="fa-fw fas fa-calendar-check"></i><span> 学习空间</span>';
       item.appendChild(link);
       var notes = menu.querySelector('a[href="/notes/"]');
       var anchor = notes && notes.closest('.menus_item');
       if (anchor) anchor.after(item); else menu.appendChild(item);
     });
   }
-  addDraftLink();
-  document.addEventListener('pjax:complete', addDraftLink);
+  updateStudyLink();
+  document.addEventListener('pjax:complete', updateStudyLink);
 })();
 
 // Keep the click fireworks local so the effect works without a third-party CDN.
@@ -211,4 +215,3 @@
   window.addEventListener('resize', resize);
   resize();
 })();
-

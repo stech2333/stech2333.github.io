@@ -1,6 +1,12 @@
 # 私人草稿空间初始化
 
-草稿页面位于 `/drafts/`。公开站点仅包含编辑器代码和 Supabase publishable key；账号密码、secret key 和草稿数据不得提交到公开仓库。
+草稿已整合进 `/study/#docs`。公开站点仅包含编辑器代码和 Supabase publishable key；账号密码、secret key 和私人数据不得提交到公开仓库。
+
+## 学习空间升级
+
+已有草稿空间的项目先在 Supabase SQL Editor 执行 `study-schema.sql`。它只增加学习计划、任务和 LeetCode 记录表及访问规则，不改动原草稿表或唯一管理员账号。执行成功后刷新 `/study/`，用原管理员邮箱和密码登录。日历、学习计划、任务、题目链接、Markdown 题解和原草稿都会从私人数据库读取。右键点击项目可编辑或删除；手机或触屏可点项目旁的小 `⋯`。删除计划时任务会转到“未分类”，删除任务、题目或文档会软删除。
+
+新项目仍应先执行 `schema.sql` 并登记唯一所有者，再执行 `study-schema.sql`。站点的 publishable key 继续放在 `js/drafts-config.js`，不要把 secret key 写入网页。`/drafts/` 会跳转到 `/study/#docs`。
 
 ## 1. 创建项目与数据库
 
@@ -41,4 +47,3 @@ npm run setup-owner
 草稿正文使用 Markdown。新建后直接写正文，草稿名称可以最后填写；输入会自动保存，也可以手动保存或下载为 `.md` 文件。数据库仍保留旧版草稿的结构，打开旧草稿时会转换成 Markdown 文本；旧附件路径以 `draft-asset://` 形式保留，下载后的文件如需公开使用，应自行替换为可访问的文件地址。删除操作会从列表隐藏草稿，数据库保留原记录以防误删。
 
 当前版本只管理私人草稿，不会自动发布到公开 Hexo 文章。公开站点的 Markdown 文件与私人草稿需分别管理。
-
