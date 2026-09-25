@@ -116,20 +116,17 @@ body { letter-spacing: .01em; }
 .drafts-app button:hover { border-color: var(--blog-accent); }
 .drafts-app button:disabled { cursor: not-allowed; opacity: .55; }
 .drafts-app .drafts-app__primary { padding: .65rem 1rem; border-color: var(--blog-accent); background: var(--blog-accent); color: #fff; font-weight: 700; }
-.drafts-app input, .drafts-app textarea, .drafts-app select { box-sizing: border-box; width: 100%; padding: .7rem .8rem; border: 1px solid var(--blog-border); border-radius: 8px; background: var(--blog-surface); color: var(--blog-ink); font: inherit; }
-.drafts-app input:focus, .drafts-app textarea:focus, .drafts-app select:focus { outline: 2px solid rgba(45, 115, 185, .25); border-color: var(--blog-accent); }
+.drafts-app input, .drafts-app textarea { box-sizing: border-box; width: 100%; padding: .7rem .8rem; border: 1px solid var(--blog-border); border-radius: 8px; background: var(--blog-surface); color: var(--blog-ink); font: inherit; }
+.drafts-app input:focus, .drafts-app textarea:focus { outline: 2px solid rgba(45, 115, 185, .25); border-color: var(--blog-accent); }
 .drafts-app label { display: block; margin-bottom: 1rem; color: var(--blog-muted); font-size: .86rem; font-weight: 700; }
-.drafts-app label input, .drafts-app label textarea, .drafts-app label select { display: block; margin-top: .35rem; font-weight: 400; }
-.drafts-app__toolbar, .drafts-app__editor-head, .drafts-app__blocks-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.drafts-app label input, .drafts-app label textarea { display: block; margin-top: .35rem; font-weight: 400; }
+.drafts-app__toolbar, .drafts-app__editor-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .drafts-app__toolbar { padding: 1.2rem 0; }
-.drafts-app__toolbar span, .drafts-app__editor-head span, .drafts-app__blocks-head span { color: var(--blog-muted); font-size: .83rem; }
+.drafts-app__toolbar span, .drafts-app__editor-head span { color: var(--blog-muted); font-size: .83rem; }
 .drafts-app__toolbar button, .drafts-app__editor-head button { padding: .5rem .8rem; }
 .drafts-app__layout { display: grid; grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr); gap: 1.25rem; }
 .drafts-app__sidebar { min-width: 0; padding: 1rem; border: 1px solid var(--blog-border); border-radius: 12px; background: var(--blog-surface); }
 .drafts-app__sidebar > .drafts-app__primary { width: 100%; margin-bottom: .9rem; }
-.drafts-app__filters { display: flex; flex-wrap: wrap; gap: .35rem; margin: .8rem 0; }
-.drafts-app__filters button { padding: .3rem .55rem; font-size: .78rem; }
-.drafts-app__filters button.is-active { border-color: var(--blog-accent); color: var(--blog-accent-dark); background: rgba(45, 115, 185, .1); }
 .drafts-app__list { display: grid; gap: .4rem; max-height: 55rem; overflow: auto; }
 .drafts-app__list-item { display: grid; gap: .25rem; width: 100%; padding: .7rem !important; text-align: left; }
 .drafts-app__list-item.is-active { border-color: var(--blog-accent); background: rgba(45, 115, 185, .08); }
@@ -137,33 +134,19 @@ body { letter-spacing: .01em; }
 .drafts-app__list-item small, .drafts-app__list-empty { color: var(--blog-muted); }
 .drafts-app__editor { min-width: 0; padding: 1.25rem; border: 1px solid var(--blog-border); border-radius: 12px; background: var(--blog-surface); }
 .drafts-app__empty { padding: 4rem 1rem; color: var(--blog-muted); text-align: center; }
-.drafts-app__editor-head { margin-bottom: 1.2rem; }
-.drafts-app__editor-head > div { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: flex-end; }
-.drafts-app__meta { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; }
-.drafts-app__blocks-head { margin: 1.5rem 0 .7rem; }
-.drafts-app__blocks { display: grid; gap: .8rem; }
-.drafts-app__block { padding: .9rem; border: 1px solid var(--blog-border); border-radius: 10px; }
-.drafts-app__block > input, .drafts-app__block > textarea { margin-top: .5rem; }
-.drafts-app__block-actions { display: flex; align-items: center; gap: .35rem; }
-.drafts-app__block-actions span { margin-right: auto; color: var(--blog-muted); font-size: .8rem; font-weight: 700; }
-.drafts-app__block-actions button { padding: .2rem .5rem; font-size: .78rem; }
-.drafts-app__code { font-family: Consolas, Monaco, monospace !important; white-space: pre-wrap; }
-.drafts-app__image, .drafts-app__preview img { display: block; max-width: 100%; max-height: 24rem; margin-top: .7rem; border-radius: 8px; object-fit: contain; }
-.drafts-app__add-blocks { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
-.drafts-app__add-blocks button { padding: .45rem .65rem; font-size: .84rem; }
-.drafts-app__preview { margin-top: 1rem; padding: 1.2rem; border: 1px solid var(--blog-border); border-radius: 10px; line-height: 1.7; }
-.drafts-app__preview-summary { color: var(--blog-muted); }
-.drafts-app__preview pre { overflow: auto; padding: 1rem; border-radius: 8px; background: rgba(45, 115, 185, .08); }
-.drafts-app__preview table { display: block; overflow-x: auto; border-collapse: collapse; }
-.drafts-app__preview td { padding: .45rem .65rem; border: 1px solid var(--blog-border); }
+.drafts-app__editor-head { margin-bottom: 1rem; }
+.drafts-app__markdown { display: block; min-height: 30rem; margin: .35rem 0 1.25rem; resize: vertical; font-family: Consolas, Monaco, monospace !important; line-height: 1.65; tab-size: 2; }
+.drafts-app__editor-actions { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1rem; }
+.drafts-app__editor-actions button { padding: .6rem .85rem; }
 
 @media (max-width: 680px) {
   .notes-grid { grid-template-columns: 1fr; }
   #page, #post { border-radius: 12px; }
   .home-intro__actions a { flex: 1 1 auto; justify-content: center; }
-  .drafts-app__layout, .drafts-app__meta { grid-template-columns: 1fr; }
+  .drafts-app__layout { grid-template-columns: 1fr; }
   .drafts-app__editor-head { align-items: flex-start; flex-direction: column; }
   .drafts-app__sidebar { padding: .8rem; }
   .drafts-app__editor { padding: .9rem; }
+  .drafts-app__markdown { min-height: 22rem; }
 }
 
