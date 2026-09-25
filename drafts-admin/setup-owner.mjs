@@ -36,7 +36,7 @@ function askSecret(question) {
 async function main() {
   const url = (process.env.SUPABASE_URL || await ask('Supabase 项目 URL：')).trim();
   if (!/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/i.test(url)) throw new Error('项目 URL 格式不正确。');
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || await askSecret('service_role key（输入不显示）：');
+  const key = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || await askSecret('Supabase secret key（输入不显示）：');
   const email = (await ask('唯一管理员邮箱：')).toLowerCase();
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new Error('邮箱格式不正确。');
   const password = await askSecret('设置登录密码（至少 12 位，输入不显示）：');
