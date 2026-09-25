@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://stech2333.github.io/img/own.jpg">
 <meta property="article:published_time" content="2026-09-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-25T16:25:59.449Z">
+<meta property="article:modified_time" content="2026-09-25T16:43:14.266Z">
 <meta property="article:author" content="stech2333">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://stech2333.github.io/img/own.jpg"><link rel="shortcut icon" href="/img/own.jpg"><link rel="canonical" href="https://stech2333.github.io/study/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
@@ -55,7 +55,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2026-09-26 00:25:59'
+  postUpdate: '2026-09-26 00:43:14'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -160,14 +160,14 @@
   <section id="study-workspace" hidden="">
     <div class="study-toolbar"><span>仅你可见的学习记录</span><button id="study-sign-out" class="btn" type="button">退出登录</button></div>
     <div class="workspace">
-      <aside class="sidebar" aria-label="学习空间导航"><div class="sidebar-head">工作台</div><nav class="nav" id="nav"><button data-view="calendar" class="active" type="button"><span class="nav-icon">▦</span>日历</button><button data-view="plans" type="button"><span class="nav-icon">☑</span>学习计划</button><button data-view="practice" type="button"><span class="nav-icon">✎</span>刷题记录</button><button data-view="docs" type="button"><span class="nav-icon">▤</span>Markdown 文档</button></nav><div class="sidebar-foot">任务、计划、题目和文档仅在你的私人空间保存。</div></aside>
-      <main class="main">
+      <aside class="sidebar" aria-label="学习空间导航"><div class="sidebar-head">工作台</div><nav class="nav" aria-label="模块切换"><button data-view="calendar" class="active" type="button"><span class="nav-icon">▦</span>日历</button><button data-view="plans" type="button"><span class="nav-icon">☑</span>学习计划</button><button data-view="practice" type="button"><span class="nav-icon">✎</span>刷题记录</button><button data-view="docs" type="button"><span class="nav-icon">▤</span>Markdown 文档</button></nav><div class="sidebar-foot">任务、计划、题目和文档仅在你的私人空间保存。</div></aside>
+      <div class="main">
         <div class="stats" id="stats"></div>
         <section id="view-calendar" class="panel"><div class="section-head"><div><h2>学习日历</h2><p>选择日期，查看任务和 LeetCode 题目。</p></div><div class="button-row"><button class="btn" id="go-today" type="button">回到今天</button><button class="btn primary" data-open="task" type="button">＋ 添加任务</button></div></div><div class="calendar-layout"><div><div class="calendar-heading"><strong id="calendar-month"></strong><div class="calendar-controls"><button id="prev-month" type="button" aria-label="上个月">‹</button><button id="next-month" type="button" aria-label="下个月">›</button></div></div><div class="weekdays"><span>周一</span><span>周二</span><span>周三</span><span>周四</span><span>周五</span><span>周六</span><span>周日</span></div><div class="days" id="calendar-days"></div><div class="legend"><span><i class="dot"></i>待完成</span><span><i class="dot done"></i>已完成</span><span><i class="dot practice"></i>LeetCode</span></div></div><aside class="agenda"><h3 id="agenda-title"></h3><p class="sub" id="agenda-sub"></p><div class="agenda-group">学习任务</div><div id="agenda-tasks"></div><div class="agenda-group">LeetCode 题目</div><div id="agenda-records"></div><button class="btn" data-open="practice" type="button" style="margin-top:13px">＋ 记录题目</button></aside></div></section>
         <section id="view-plans" class="panel" hidden=""><div class="section-head"><div><h2>学习计划</h2><p>计划和子任务均可修改；删除计划时子任务会保留为未分类。</p></div><div class="button-row"><button class="btn" data-open="plan" type="button">＋ 新建计划</button><button class="btn primary" data-open="task" type="button">＋ 添加任务</button></div></div><div class="plan-grid" id="plan-grid"></div></section>
         <section id="view-practice" class="panel" hidden=""><div class="section-head"><div><h2>LeetCode 刷题记录</h2><p>一题一条记录，可填写题目链接、状态和 Markdown 题解。</p></div><button class="btn primary" data-open="practice" type="button">＋ 记录题目</button></div><div class="search-tools"><input id="practice-search" type="search" placeholder="搜索题目或专题" aria-label="搜索题目或专题"><select id="practice-filter" aria-label="筛选题目状态"><option value="all">全部状态</option><option value="todo">待做</option><option value="solved">已完成</option><option value="review">待复习</option></select></div><div class="record-list" id="record-list"></div></section>
         <section id="view-docs" class="panel" hidden=""><div class="section-head"><div><h2>Markdown 文档</h2><p>原有私人草稿会显示在这里，继续直接写正文、最后命名。</p></div><button class="btn primary" id="new-doc" type="button">＋ 新建文档</button></div><div class="docs-layout"><div class="docs-list" id="docs-list"></div><div class="docs-editor" id="docs-editor"><label for="doc-body">Markdown 正文</label><textarea id="doc-body" spellcheck="false"></textarea><label for="doc-title">文档名称（写完后填写）</label><input id="doc-title" maxlength="160" placeholder="未命名文档"><div class="docs-actions"><button class="btn" id="download-doc" type="button">下载 .md</button></div><small id="docs-status">输入后自动保存到私人数据库。</small></div></div></section>
-      </main>
+      </div>
     </div>
     <div class="modal-backdrop" id="plan-modal" hidden=""><form class="modal" id="plan-form" role="dialog" aria-modal="true" aria-labelledby="plan-modal-title"><h2 id="plan-modal-title">新建学习计划</h2><p>计划用于归类学习任务，任务可单独修改和删除。</p><label>计划名称<input name="name" required="" maxlength="80" placeholder="例如：动态规划专项"></label><div class="modal-actions"><button class="btn" type="button" data-close="">取消</button><button class="btn primary" type="submit">保存计划</button></div></form></div>
     <div class="modal-backdrop" id="task-modal" hidden=""><form class="modal" id="task-form" role="dialog" aria-modal="true" aria-labelledby="task-modal-title"><h2 id="task-modal-title">添加学习任务</h2><p>任务会出现在计划和选定日期的日历中。</p><label>任务名称<input name="title" required="" maxlength="160" placeholder="例如：完成双指针练习"></label><div class="two"><label>所属计划<select name="plan"></select></label><label>计划日期<input name="date" type="date" required=""></label></div><div class="modal-actions"><button class="btn" type="button" data-close="">取消</button><button class="btn primary" type="submit">保存任务</button></div></form></div>
