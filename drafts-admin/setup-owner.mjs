@@ -41,6 +41,7 @@ async function main() {
   if (!key.startsWith('sb_secret_') && !key.startsWith('eyJ')) throw new Error('请从当前项目的 Settings → API Keys 复制 secret key，不要复制项目 URL 或数据库密码。');
   const client = createClient(url, key, { auth: { autoRefreshToken: false, persistSession: false } });
   const check = await client.auth.admin.listUsers({ page: 1, perPage: 1 });
+  if (check.error?.message === 'fetch failed') throw new Error('无法连接 Supabase（fetch failed）。如果通过代理联网，请使用 Node.js 24.5+ 并在运行前设置 $env:NODE_USE_ENV_PROXY="1"。');
   if (check.error) throw new Error('密钥验证失败：' + check.error.message + '。请确认 URL 与 secret key 来自同一个 Supabase 项目。');
   process.stdout.write('项目 URL 与管理密钥已验证。\n');
   const email = (await ask('唯一管理员邮箱：')).toLowerCase();
