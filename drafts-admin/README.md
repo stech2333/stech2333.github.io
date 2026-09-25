@@ -26,7 +26,9 @@ npm run setup-owner
 
 出现 `fetch failed` 是连接问题，不能据此判断密钥是否正确。请勿通过关闭 TLS 证书验证来处理连接问题。
 
-脚本会依次询问项目 URL、当前项目的 `sb_secret_...` key、邮箱、密码。它会先只读验证 URL 和密钥，再询问账号信息。密钥和密码输入时不会显示，也无需写入命令参数。请本人在自己的终端运行；不要把执行过程录屏或上传日志。账号仅创建一次。如果创建账号成功但所有者登记失败，请检查 SQL 初始化结果，不要重复创建账号。
+脚本会依次询问项目 URL、当前项目的 `sb_secret_...` key、邮箱；仅在邮箱尚无账号时询问密码并创建账号。它会先只读验证 URL 和密钥。密钥和密码输入时不会显示，也无需写入命令参数。请本人在自己的终端运行；不要把执行过程录屏或上传日志。
+
+如果提示 `Could not find the function public.set_draft_owner(owner_uuid) in the schema cache`，请先在 SQL Editor 完整执行本目录的 `schema.sql`，确认执行成功，再重新运行 `npm run setup-owner`。SQL 文件可以重跑；脚本会找到已创建的邮箱账号并继续登记，不会重设密码。如果确认数据库中已存在函数而接口仍找不到，请在 SQL Editor 执行 `NOTIFY pgrst, 'reload schema';` 后重试。
 
 ## 3. 连接网页
 
