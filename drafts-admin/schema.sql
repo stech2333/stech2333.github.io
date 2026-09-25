@@ -58,13 +58,17 @@ alter table public.drafts enable row level security;
 revoke all on public.drafts from public, anon, authenticated;
 grant select, insert, update, delete on public.drafts to authenticated;
 
+drop policy if exists "owner reads drafts" on public.drafts;
 create policy "owner reads drafts" on public.drafts for select to authenticated
 using (owner_id = (select auth.uid()) and (select private.is_draft_owner()));
+drop policy if exists "owner creates drafts" on public.drafts;
 create policy "owner creates drafts" on public.drafts for insert to authenticated
 with check (owner_id = (select auth.uid()) and (select private.is_draft_owner()));
+drop policy if exists "owner edits drafts" on public.drafts;
 create policy "owner edits drafts" on public.drafts for update to authenticated
 using (owner_id = (select auth.uid()) and (select private.is_draft_owner()))
 with check (owner_id = (select auth.uid()) and (select private.is_draft_owner()));
+drop policy if exists "owner deletes drafts" on public.drafts;
 create policy "owner deletes drafts" on public.drafts for delete to authenticated
 using (owner_id = (select auth.uid()) and (select private.is_draft_owner()));
 
@@ -79,6 +83,7 @@ create index if not exists draft_revisions_draft_created_idx on public.draft_rev
 alter table public.draft_revisions enable row level security;
 revoke all on public.draft_revisions from public, anon, authenticated;
 grant select on public.draft_revisions to authenticated;
+drop policy if exists "owner reads revisions" on public.draft_revisions;
 create policy "owner reads revisions" on public.draft_revisions for select to authenticated
 using (owner_id = (select auth.uid()) and (select private.is_draft_owner()));
 
@@ -101,6 +106,7 @@ begin
   return new;
 end;
 $$;
+drop trigger if exists drafts_track_update on public.drafts;
 create trigger drafts_track_update before update on public.drafts
 for each row execute function private.track_draft_update();
 
@@ -108,18 +114,23 @@ insert into storage.buckets (id, name, public, file_size_limit)
 values ('draft-assets', 'draft-assets', false, 26214400)
 on conflict (id) do nothing;
 
+drop policy if exists "owner reads draft assets" on storage.objects;
 create policy "owner reads draft assets" on storage.objects for select to authenticated
 using (bucket_id = 'draft-assets' and (select private.is_draft_owner())
   and (storage.foldername(name))[1] = (select auth.uid())::text);
+drop policy if exists "owner uploads draft assets" on storage.objects;
 create policy "owner uploads draft assets" on storage.objects for insert to authenticated
 with check (bucket_id = 'draft-assets' and (select private.is_draft_owner())
   and (storage.foldername(name))[1] = (select auth.uid())::text);
+drop policy if exists "owner edits draft assets" on storage.objects;
 create policy "owner edits draft assets" on storage.objects for update to authenticated
 using (bucket_id = 'draft-assets' and (select private.is_draft_owner())
   and (storage.foldername(name))[1] = (select auth.uid())::text)
 with check (bucket_id = 'draft-assets' and (select private.is_draft_owner())
   and (storage.foldername(name))[1] = (select auth.uid())::text);
+drop policy if exists "owner deletes draft assets" on storage.objects;
 create policy "owner deletes draft assets" on storage.objects for delete to authenticated
 using (bucket_id = 'draft-assets' and (select private.is_draft_owner())
   and (storage.foldername(name))[1] = (select auth.uid())::text);
 
+notify pgrst, 'reload schema';
