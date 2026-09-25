@@ -1,0 +1,12 @@
+{
+  "name": "stech2333-drafts-admin",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup-owner": "node setup-owner.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0"
+  }
+}
+
