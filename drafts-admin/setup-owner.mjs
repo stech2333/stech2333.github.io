@@ -34,16 +34,21 @@ function askSecret(question) {
 }
 
 async function main() {
-  const url = (process.env.SUPABASE_URL || await ask('Supabase 项目 URL：')).trim();
+  const url = (await ask('Supabase 项目 URL：')).trim().replace(/\/$/, '');
   if (!/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/i.test(url)) throw new Error('项目 URL 格式不正确。');
-  const key = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || await askSecret('Supabase secret key（输入不显示）：');
+  const key = (await askSecret('当前项目的 sb_secret_... key（输入不显示）：')).trim();
+  if (key.startsWith('sb_publishable_')) throw new Error('这里需要 sb_secret_...，不能使用 sb_publishable_...。');
+  if (!key.startsWith('sb_secret_') && !key.startsWith('eyJ')) throw new Error('请从当前项目的 Settings → API Keys 复制 secret key，不要复制项目 URL 或数据库密码。');
+  const client = createClient(url, key, { auth: { autoRefreshToken: false, persistSession: false } });
+  const check = await client.auth.admin.listUsers({ page: 1, perPage: 1 });
+  if (check.error) throw new Error('密钥验证失败：' + check.error.message + '。请确认 URL 与 secret key 来自同一个 Supabase 项目。');
+  process.stdout.write('项目 URL 与管理密钥已验证。\n');
   const email = (await ask('唯一管理员邮箱：')).toLowerCase();
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new Error('邮箱格式不正确。');
   const password = await askSecret('设置登录密码（至少 12 位，输入不显示）：');
   const confirmation = await askSecret('再次输入密码：');
   if (password.length < 12 || password !== confirmation) throw new Error('密码长度不足或两次输入不一致。');
 
-  const client = createClient(url, key, { auth: { autoRefreshToken: false, persistSession: false } });
   const created = await client.auth.admin.createUser({ email, password, email_confirm: true });
   if (created.error) throw created.error;
   const registered = await client.rpc('set_draft_owner', { owner_uuid: created.data.user.id });
@@ -53,4 +58,3 @@ async function main() {
 }
 
 main().catch(error => { process.stderr.write('初始化失败：' + error.message + '\n'); process.exitCode = 1; });
-
