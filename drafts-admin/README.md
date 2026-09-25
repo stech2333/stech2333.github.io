@@ -1,27 +1,27 @@
 # 私人草稿空间初始化
 
-草稿页面位于 `/drafts/`。公开站点仅包含编辑器代码和 Supabase publishable key；账号密码、`service_role` key 和草稿数据不得提交到公开仓库。
+草稿页面位于 `/drafts/`。公开站点仅包含编辑器代码和 Supabase publishable key；账号密码、secret key 和草稿数据不得提交到公开仓库。
 
 ## 1. 创建项目与数据库
 
-1. 由站长本人创建 Supabase 项目，并妥善保存项目 URL、publishable key、`service_role` key 和数据库连接信息。
+1. 由站长本人创建 Supabase 项目，从项目的 Connect 面板取得项目 URL 与 publishable key，从 Settings → API Keys 取得 `sb_secret_...` secret key。妥善保存管理密钥和数据库连接信息。
 2. 在项目 SQL Editor 执行本目录的 `schema.sql`。也可以在已配置安全数据库连接的终端使用 `psql -f schema.sql`。这个脚本创建草稿表、历史版本、私有文件桶和仅限唯一所有者的权限规则。
 3. 在 Supabase Auth 设置中保留邮箱密码登录，关闭 **Allow new users to sign up** 与匿名登录。
 
 ## 2. 在终端创建唯一账号
 
-在本目录执行：
+准备 Node.js 22 或更新版本，在本目录执行：
 
 ```powershell
 npm install
 npm run setup-owner
 ```
 
-脚本会依次询问项目 URL、`service_role` key、邮箱、密码。密钥和密码输入时不会显示，也无需写入命令参数。请本人在自己的终端运行；不要把执行过程录屏或上传日志。账号仅创建一次。如果创建账号成功但所有者登记失败，请检查 SQL 初始化结果，不要重复创建账号。
+脚本会依次询问项目 URL、secret key、邮箱、密码。密钥和密码输入时不会显示，也无需写入命令参数。请本人在自己的终端运行；不要把执行过程录屏或上传日志。账号仅创建一次。如果创建账号成功但所有者登记失败，请检查 SQL 初始化结果，不要重复创建账号。
 
 ## 3. 连接网页
 
-把项目 URL 和 **publishable key** 填入站点中的 `js/drafts-config.js`；本地 Hexo 源文件为 `hexo/source/js/drafts-config.js`。这个 key 可以出现在浏览器中；安全性依赖 `schema.sql` 中的数据库与私有存储权限。**不要**填写 `service_role` key。
+把项目 URL 和 **publishable key** 填入站点中的 `js/drafts-config.js`；本地 Hexo 源文件为 `hexo/source/js/drafts-config.js`。这个 key 可以出现在浏览器中；安全性依赖 `schema.sql` 中的数据库与私有存储权限。**不要**填写 secret key。
 
 上线后依次验证：未登录看不到草稿；唯一账号能够登录、创建、修改、自动保存、上传图片与附件、移到回收站并恢复；其他账号即使能够登录 Supabase，也不能读取或写入草稿。
 
