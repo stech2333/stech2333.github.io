@@ -113,6 +113,28 @@
   filterNotes();
 })();
 
+// Keep the drafts link on previously generated pages until the next full Hexo deploy.
+(function () {
+  'use strict';
+  function addDraftLink() {
+    document.querySelectorAll('#menus .menus_items, #sidebar-menus .menus_items').forEach(function (menu) {
+      if (menu.querySelector('a[href="/drafts/"]')) return;
+      var item = document.createElement('div');
+      item.className = 'menus_item';
+      var link = document.createElement('a');
+      link.className = 'site-page';
+      link.href = '/drafts/';
+      link.innerHTML = '<i class="fa-fw fas fa-pen-to-square"></i><span> 草稿</span>';
+      item.appendChild(link);
+      var notes = menu.querySelector('a[href="/notes/"]');
+      var anchor = notes && notes.closest('.menus_item');
+      if (anchor) anchor.after(item); else menu.appendChild(item);
+    });
+  }
+  addDraftLink();
+  document.addEventListener('pjax:complete', addDraftLink);
+})();
+
 // Keep the click fireworks local so the effect works without a third-party CDN.
 (function () {
   'use strict';
