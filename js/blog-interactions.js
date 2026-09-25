@@ -112,3 +112,81 @@
   updateBookmarks();
   filterNotes();
 })();
+
+// Keep the click fireworks local so the effect works without a third-party CDN.
+(function () {
+  'use strict';
+
+  if (window.__blogFireworksReady || !document.body) return;
+  window.__blogFireworksReady = true;
+
+  var canvas = document.createElement('canvas');
+  canvas.className = 'blog-click-fireworks';
+  canvas.setAttribute('aria-hidden', 'true');
+  canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999';
+  document.body.appendChild(canvas);
+
+  var context = canvas.getContext('2d');
+  if (!context) {
+    canvas.remove();
+    return;
+  }
+
+  var particles = [];
+  var frame = 0;
+  var previousTime = 0;
+
+  function resize() {
+    var scale = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(window.innerWidth * scale);
+    canvas.height = Math.round(window.innerHeight * scale);
+    context.setTransform(scale, 0, 0, scale, 0, 0);
+  }
+
+  function draw(time) {
+    var elapsed = Math.min((time - (previousTime || time)) / 16.67, 2);
+    previousTime = time;
+    context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    particles = particles.filter(function (particle) {
+      particle.x += particle.vx * elapsed;
+      particle.y += particle.vy * elapsed;
+      particle.vy += 0.075 * elapsed;
+      particle.life -= 0.028 * elapsed;
+      if (particle.life <= 0) return false;
+
+      context.beginPath();
+      context.arc(particle.x, particle.y, particle.radius * particle.life, 0, Math.PI * 2);
+      context.fillStyle = 'hsla(' + particle.hue + ', 100%, 65%, ' + particle.life + ')';
+      context.fill();
+      return true;
+    });
+
+    frame = particles.length ? requestAnimationFrame(draw) : 0;
+    if (!frame) previousTime = 0;
+  }
+
+  document.addEventListener('click', function (event) {
+    if (event.button !== 0 || document.hidden || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var hue = Math.floor(Math.random() * 360);
+    for (var i = 0; i < 30; i++) {
+      var angle = (Math.PI * 2 * i) / 30 + Math.random() * 0.2;
+      var speed = 2 + Math.random() * 4;
+      particles.push({
+        x: event.clientX,
+        y: event.clientY,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        radius: 2 + Math.random() * 2,
+        hue: (hue + Math.random() * 70) % 360,
+        life: 1
+      });
+    }
+    if (particles.length > 180) particles.splice(0, particles.length - 180);
+    if (!frame) frame = requestAnimationFrame(draw);
+  });
+
+  window.addEventListener('resize', resize);
+  resize();
+})();
+
