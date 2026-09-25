@@ -46,15 +46,26 @@ async function main() {
   process.stdout.write('项目 URL 与管理密钥已验证。\n');
   const email = (await ask('唯一管理员邮箱：')).toLowerCase();
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new Error('邮箱格式不正确。');
-  const password = await askSecret('设置登录密码（至少 12 位，输入不显示）：');
-  const confirmation = await askSecret('再次输入密码：');
-  if (password.length < 12 || password !== confirmation) throw new Error('密码长度不足或两次输入不一致。');
-
-  const created = await client.auth.admin.createUser({ email, password, email_confirm: true });
-  if (created.error) throw created.error;
-  const registered = await client.rpc('set_draft_owner', { owner_uuid: created.data.user.id });
-  if (registered.error) throw new Error('账号已创建，但登记草稿所有者失败：' + registered.error.message);
-  process.stdout.write('唯一草稿账号已创建并登记。用户 ID：' + created.data.user.id + '\n');
+  let user;
+  for (let page = 1; !user; page++) {
+    const listed = await client.auth.admin.listUsers({ page, perPage: 100 });
+    if (listed.error) throw new Error('查询现有账号失败：' + listed.error.message);
+    user = listed.data.users.find(item => item.email?.toLowerCase() === email);
+    if (listed.data.users.length < 100) break;
+  }
+  if (user) {
+    process.stdout.write('该邮箱的账号已存在，将登记现有账号，不会更改密码。\n');
+  } else {
+    const password = await askSecret('设置登录密码（至少 12 位，输入不显示）：');
+    const confirmation = await askSecret('再次输入密码：');
+    if (password.length < 12 || password !== confirmation) throw new Error('密码长度不足或两次输入不一致。');
+    const created = await client.auth.admin.createUser({ email, password, email_confirm: true });
+    if (created.error) throw created.error;
+    user = created.data.user;
+  }
+  const registered = await client.rpc('set_draft_owner', { owner_uuid: user.id });
+  if (registered.error) throw new Error('账号已存在，但登记草稿所有者失败：' + registered.error.message + '。请确认已完整执行 schema.sql；若函数已存在，请在 SQL Editor 执行 NOTIFY pgrst, \'reload schema\';');
+  process.stdout.write('唯一草稿账号已登记。用户 ID：' + user.id + '\n');
   process.stdout.write('请关闭 Supabase 的公开注册，并把项目 URL 与 publishable key 写入 js/drafts-config.js。\n');
 }
 
