@@ -1,10 +1,11 @@
--- Run once in the Supabase SQL Editor or with psql before creating the owner.
+-- Run in the Supabase SQL Editor or with psql before registering the owner.
 create schema if not exists private;
 
 create table if not exists private.draft_owner (
   singleton boolean primary key default true check (singleton),
   user_id uuid not null unique references auth.users(id)
 );
+alter table private.draft_owner enable row level security;
 revoke all on schema private from public, anon, authenticated;
 revoke all on private.draft_owner from public, anon, authenticated;
 
