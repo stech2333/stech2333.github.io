@@ -318,10 +318,13 @@
     }
     db = window.supabase.createClient(config.url, config.publishableKey);
     try {
-      const session = await db.auth.getUser();
+      const session = await db.auth.getSession();
       if (session.error) throw session.error;
-      if (session.data.user) await signedIn(session.data.user);
-      else show('study-login', true);
+      if (session.data.session) {
+        const user = await db.auth.getUser();
+        if (user.error) throw user.error;
+        await signedIn(user.data.user);
+      } else show('study-login', true);
     } catch (error) { show('study-login', true); report(error); }
   }
 
