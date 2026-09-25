@@ -2,6 +2,9 @@
   "name": "stech2333-drafts-admin",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "setup-owner": "node setup-owner.mjs"
   },
