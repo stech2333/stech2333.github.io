@@ -325,7 +325,11 @@
         if (user.error) throw user.error;
         await signedIn(user.data.user);
       } else show('study-login', true);
-    } catch (error) { show('study-login', true); report(error); }
+    } catch (error) {
+      show('study-login', true);
+      if (error?.name === 'AuthSessionMissingError' || /auth session missing/i.test(error?.message || '')) message('');
+      else report(error);
+    }
   }
 
   $('study-login-form').addEventListener('submit', async event => {
